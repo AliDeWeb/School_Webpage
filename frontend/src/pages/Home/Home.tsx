@@ -1,5 +1,12 @@
+// Components
+import { Header } from "../../configs/layout";
+
 const Home = () => {
-  return <></>;
+  return (
+    <>
+      <Header />
+    </>
+  );
 };
 
 export default Home;

@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    background: #fffcf0;
+  }
+  img {
+    @apply size-full;
+  }
+}
+@layer components {
+  .btn {
+    @apply rounded-xl py-1 px-3 transition-all;
+    border: 1.8px solid #f2d0a4;
+  }
+}
