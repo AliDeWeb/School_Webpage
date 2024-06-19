@@ -39,6 +39,9 @@ const Header = () => {
           </div>
         </div>
       </div>
+      <div
+        className={`${isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"} transition-all w-full h-[100dvh] fixed z-20 top-0 bottom-0 left-0 right-0 bg-black/80 backdrop-blur-3xl`}
+      ></div>
 
       {/*
           Header Content
