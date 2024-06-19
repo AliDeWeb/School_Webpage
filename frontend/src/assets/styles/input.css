@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  ::selection {
+    color: #fff;
+    background: #f2d0a4;
+  }
   body {
     background: #fffcf0;
   }
