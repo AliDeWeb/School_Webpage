@@ -1,5 +1,5 @@
 // Imgs
-import sampadLogo from "../../assets/imgs/icons/logo.jpg";
+import sampadLogo from "../../assets/imgs/icons/logo.png";
 
 // React Router
 import { Link } from "react-router-dom";
@@ -10,7 +10,7 @@ import { IoMenu } from "react-icons/io5";
 
 const Header = () => {
   return (
-    <header className="py-4 shadow-md fixed top-0 left-0 right-0 w-full">
+    <header className="py-4 shadow-md fixed top-0 left-0 right-0 w-full z-20">
       <div className="container">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-8 lg:gap-12">
