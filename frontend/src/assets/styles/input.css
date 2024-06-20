@@ -9,6 +9,7 @@
   }
   body {
     background: #fffcf0;
+    padding-top: 80px;
   }
   img {
     @apply size-full;

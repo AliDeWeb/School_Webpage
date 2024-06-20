@@ -1,10 +1,11 @@
 // Components
-import { Header } from "../../configs/layout";
+import { Header, Banner } from "../../configs/layout";
 
 const Home = () => {
   return (
     <>
       <Header />
+      <Banner />
     </>
   );
 };

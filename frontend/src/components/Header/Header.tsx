@@ -22,7 +22,7 @@ const Header = () => {
   }, [isMenuOpen]);
 
   return (
-    <header className="py-4 shadow-md fixed top-0 left-0 right-0 w-full z-10">
+    <header className="py-4 shadow-md fixed top-0 left-0 right-0 w-full z-10 bg-[#fffcf0]">
       {/*
           Hamburger Menu
       */}
