@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 // Components
 import { Header, Banner, SectionWrapper } from "../../configs/layout";
 
@@ -17,7 +19,6 @@ import "aos/dist/aos.css";
 
 // React Router
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
 
 const Home = () => {
   useEffect(() => {
