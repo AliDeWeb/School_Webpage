@@ -4,28 +4,6 @@ import banner from "../../assets/imgs/banner.jpg";
 // TypeWriter
 import { Typewriter } from "react-simple-typewriter";
 
-// AOS
-// @ts-ignore
-import AOS from "aos";
-import "aos/dist/aos.css";
-AOS.init({
-  disable: false,
-  startEvent: "DOMContentLoaded",
-  initClassName: "aos-init",
-  animatedClassName: "aos-animate",
-  useClassNames: false,
-  disableMutationObserver: false,
-  debounceDelay: 50,
-  throttleDelay: 99,
-  offset: 120,
-  delay: 1000,
-  duration: 1000,
-  easing: "ease",
-  once: false,
-  mirror: false,
-  anchorPlacement: "top-bottom",
-});
-
 const Banner = () => {
   return (
     <div className={"py-4"}>
@@ -55,16 +33,10 @@ const Banner = () => {
                 "text-white font-dana list-disc md:mr-8 text-sm md:text-base flex flex-col gap-1 child:line-clamp-1"
               }
             >
-              <li data-aos="fade-left">
-                فضایی مناسب و دوستانه جهت تفریح و رقابت
-              </li>
-              <li data-aos="fade-left">
-                دارای بوفه، با مدیریت استاد ترید، آقای محمودی
-              </li>
-              <li data-aos="fade-left">
-                دارای کلاس ها درسی مجهز به بروزترین ابزار های آموزشی
-              </li>
-              <li data-aos="fade-left">
+              <li>فضایی مناسب و دوستانه جهت تفریح و رقابت</li>
+              <li>دارای بوفه، با مدیریت استاد ترید، آقای محمودی</li>
+              <li>دارای کلاس ها درسی مجهز به بروزترین ابزار های آموزشی</li>
+              <li>
                 زمین چمن مصنوعی و چندین امکانات ورزشی دیگر جهت رفاه دانش اموزان
               </li>
             </ul>
