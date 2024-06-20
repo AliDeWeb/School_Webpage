@@ -6,6 +6,7 @@ import {
   Banner,
   SectionWrapper,
   ImagesCards,
+  MemoryCard,
 } from "../../configs/layout";
 
 // SwiperJs
@@ -17,9 +18,6 @@ import "swiper/css/pagination";
 // Aos Css
 import AOS from "aos";
 import "aos/dist/aos.css";
-
-// React Router
-import { Link } from "react-router-dom";
 
 const Home = () => {
   useEffect(() => {
@@ -233,138 +231,38 @@ const Home = () => {
               "w-full grid grid-cols-4 gap-4 py-4 overflow-x-hidden child:overflow-x-hidden"
             }
           >
-            <div
-              data-aos="fade-left"
-              className={
-                "col-span-2 h-40 w-full rounded-xl overflow-hidden object-cover relative"
+            <MemoryCard
+              year={1403}
+              link={"/"}
+              fadeEffect={"left"}
+              img={
+                "https://www.sampadia.com/forum/data/xfmg/thumbnail/0/81-6852206493687b51f951a2d8a77675cb.jpg?1587808790"
               }
-            >
-              <Link to={"/"} className={"size-full"}>
-                <img
-                  src="https://www.sampadia.com/forum/data/xfmg/thumbnail/0/81-6852206493687b51f951a2d8a77675cb.jpg?1587808790"
-                  alt="img"
-                  className={"brightness-[40%]"}
-                />
-
-                <span
-                  className={
-                    " font-danaBold text-3xl sm:text-4xl md:text-5xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white"
-                  }
-                >
-                  1403
-                </span>
-              </Link>
-            </div>
-            <div
-              data-aos="fade-right"
-              className={
-                "col-span-2 h-40 w-full rounded-xl overflow-hidden object-cover relative"
+            />
+            <MemoryCard
+              year={1402}
+              link={"/"}
+              fadeEffect={"right"}
+              img={
+                "https://www.sampadia.com/forum/data/xfmg/thumbnail/0/81-6852206493687b51f951a2d8a77675cb.jpg?1587808790"
               }
-            >
-              <Link to={"/"} className={"size-full"}>
-                <img
-                  src="https://www.sampadia.com/forum/data/xfmg/thumbnail/0/81-6852206493687b51f951a2d8a77675cb.jpg?1587808790"
-                  alt="img"
-                  className={"brightness-[40%]"}
-                />
-
-                <span
-                  className={
-                    " font-danaBold text-3xl sm:text-4xl md:text-5xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white"
-                  }
-                >
-                  1402
-                </span>
-              </Link>
-            </div>
-            <div
-              data-aos="fade-left"
-              className={
-                "col-span-2 h-40 w-full rounded-xl overflow-hidden object-cover relative"
+            />
+            <MemoryCard
+              year={1401}
+              link={"/"}
+              fadeEffect={"left"}
+              img={
+                "https://www.sampadia.com/forum/data/xfmg/thumbnail/0/81-6852206493687b51f951a2d8a77675cb.jpg?1587808790"
               }
-            >
-              <Link to={"/"} className={"size-full"}>
-                <img
-                  src="https://www.sampadia.com/forum/data/xfmg/thumbnail/0/81-6852206493687b51f951a2d8a77675cb.jpg?1587808790"
-                  alt="img"
-                  className={"brightness-[40%]"}
-                />
-
-                <span
-                  className={
-                    " font-danaBold text-3xl sm:text-4xl md:text-5xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white"
-                  }
-                >
-                  1401
-                </span>
-              </Link>
-            </div>
-            <div
-              data-aos="fade-right"
-              className={
-                "col-span-2 h-40 w-full rounded-xl overflow-hidden object-cover relative"
+            />
+            <MemoryCard
+              year={1400}
+              link={"/"}
+              fadeEffect={"right"}
+              img={
+                "https://www.sampadia.com/forum/data/xfmg/thumbnail/0/81-6852206493687b51f951a2d8a77675cb.jpg?1587808790"
               }
-            >
-              <Link to={"/"} className={"size-full"}>
-                <img
-                  src="https://www.sampadia.com/forum/data/xfmg/thumbnail/0/81-6852206493687b51f951a2d8a77675cb.jpg?1587808790"
-                  alt="img"
-                  className={"brightness-[40%]"}
-                />
-
-                <span
-                  className={
-                    " font-danaBold text-3xl sm:text-4xl md:text-5xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white"
-                  }
-                >
-                  1400
-                </span>
-              </Link>
-            </div>
-            <div
-              data-aos="fade-left"
-              className={
-                "col-span-2 h-40 w-full rounded-xl overflow-hidden object-cover relative"
-              }
-            >
-              <Link to={"/"} className={"size-full"}>
-                <img
-                  src="https://www.sampadia.com/forum/data/xfmg/thumbnail/0/81-6852206493687b51f951a2d8a77675cb.jpg?1587808790"
-                  alt="img"
-                  className={"brightness-[40%]"}
-                />
-
-                <span
-                  className={
-                    " font-danaBold text-3xl sm:text-4xl md:text-5xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white"
-                  }
-                >
-                  1399
-                </span>
-              </Link>
-            </div>
-            <div
-              data-aos="fade-right"
-              className={
-                "col-span-2 h-40 w-full rounded-xl overflow-hidden object-cover relative"
-              }
-            >
-              <Link to={"/"} className={"size-full"}>
-                <img
-                  src="https://www.sampadia.com/forum/data/xfmg/thumbnail/0/81-6852206493687b51f951a2d8a77675cb.jpg?1587808790"
-                  alt="img"
-                  className={"brightness-[40%]"}
-                />
-
-                <span
-                  className={
-                    " font-danaBold text-3xl sm:text-4xl md:text-5xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white"
-                  }
-                >
-                  1398
-                </span>
-              </Link>
-            </div>
+            />
           </div>
         </SectionWrapper>
       </main>
