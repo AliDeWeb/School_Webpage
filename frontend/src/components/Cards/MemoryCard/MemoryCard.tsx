@@ -12,7 +12,7 @@ import "aos/dist/aos.css";
 
 const MemoryCard = (props: MemoryCardPropsTypes) => {
   useEffect(() => {
-    AOS.init({ delay: 0, duration: 400, once: false });
+    AOS.init({ delay: 400, duration: 400, once: false });
   }, []);
 
   return (
