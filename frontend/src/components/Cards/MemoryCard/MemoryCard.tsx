@@ -23,7 +23,12 @@ const MemoryCard = (props: MemoryCardPropsTypes) => {
       }
     >
       <Link to={props.link} className={"size-full"}>
-        <img src={props.img} alt="img" className={"brightness-[40%]"} />
+        <img
+          loading={"lazy"}
+          src={props.img}
+          alt="img"
+          className={"brightness-[40%]"}
+        />
 
         <span
           className={
