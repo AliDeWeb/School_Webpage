@@ -11,10 +11,19 @@ import "swiper/css/pagination";
 import { Card } from "antd";
 const { Meta } = Card;
 
+// Aos Css
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 // React Router
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 const Home = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
     <>
       <Header />
@@ -417,8 +426,13 @@ const Home = () => {
           </Swiper>
         </SectionWrapper>
         <SectionWrapper title={"خاطرات"} link={"/"}>
-          <div className={"w-full grid grid-cols-4 gap-4 py-4"}>
+          <div
+            className={
+              "w-full grid grid-cols-4 gap-4 py-4 overflow-x-hidden child:overflow-x-hidden"
+            }
+          >
             <div
+              data-aos="fade-left"
               className={
                 "col-span-2 h-40 w-full rounded-xl overflow-hidden object-cover relative"
               }
@@ -440,6 +454,7 @@ const Home = () => {
               </Link>
             </div>
             <div
+              data-aos="fade-right"
               className={
                 "col-span-2 h-40 w-full rounded-xl overflow-hidden object-cover relative"
               }
@@ -461,6 +476,7 @@ const Home = () => {
               </Link>
             </div>
             <div
+              data-aos="fade-left"
               className={
                 "col-span-2 h-40 w-full rounded-xl overflow-hidden object-cover relative"
               }
@@ -482,6 +498,7 @@ const Home = () => {
               </Link>
             </div>
             <div
+              data-aos="fade-right"
               className={
                 "col-span-2 h-40 w-full rounded-xl overflow-hidden object-cover relative"
               }
@@ -503,6 +520,7 @@ const Home = () => {
               </Link>
             </div>
             <div
+              data-aos="fade-left"
               className={
                 "col-span-2 h-40 w-full rounded-xl overflow-hidden object-cover relative"
               }
@@ -524,6 +542,7 @@ const Home = () => {
               </Link>
             </div>
             <div
+              data-aos="fade-right"
               className={
                 "col-span-2 h-40 w-full rounded-xl overflow-hidden object-cover relative"
               }

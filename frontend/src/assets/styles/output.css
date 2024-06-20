@@ -829,6 +829,10 @@ img {
   overflow: hidden;
 }
 
+.overflow-x-hidden {
+  overflow-x: hidden;
+}
+
 .rounded-xl {
   border-radius: 0.75rem;
 }
@@ -1120,6 +1124,10 @@ img {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
+}
+
+.child\:overflow-x-hidden > * {
+  overflow-x: hidden;
 }
 
 @media (min-width: 640px) {
