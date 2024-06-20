@@ -1,11 +1,16 @@
 // Components
-import { Header, Banner } from "../../configs/layout";
+import { Header, Banner, SectionWrapper } from "../../configs/layout";
 
 const Home = () => {
   return (
     <>
       <Header />
-      <Banner />
+      <main>
+        <Banner />
+        <SectionWrapper title={"رویداد ها"} link={"/"}>
+          <span></span>
+        </SectionWrapper>
+      </main>
     </>
   );
 };

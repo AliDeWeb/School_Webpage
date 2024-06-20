@@ -22,7 +22,7 @@ const Header = () => {
   }, [isMenuOpen]);
 
   return (
-    <header className="py-4 shadow-md fixed top-0 left-0 right-0 w-full z-10 bg-[#fffcf0]">
+    <header className="py-4 shadow-md fixed top-0 left-0 right-0 w-full z-20 bg-[#fffcf0]">
       {/*
           Hamburger Menu
       */}
@@ -57,7 +57,7 @@ const Header = () => {
               <li className="relative before:content-[''] before:absolute before:right-0 before:left-0 before:bottom-0 before:w-0 before:h-[1.8px] before:bg-[#F2D0A4] hover:before:w-full before:transition-all">
                 <Link to="/" className={"flex items-center gap-2"}>
                   <MdOutlineEventAvailable size={"1.2em"} />
-                  رویدادها
+                  رویداد ها
                 </Link>
               </li>
               <li className="relative before:content-[''] before:absolute before:right-0 before:left-0 before:bottom-0 before:w-0 before:h-[1.8px] before:bg-[#F2D0A4] hover:before:w-full before:transition-all">
@@ -102,7 +102,7 @@ const Header = () => {
                   <Link to="/">صفحه اصلی</Link>
                 </li>
                 <li className="relative before:content-[''] before:absolute before:right-0 before:left-0 before:bottom-0 before:w-0 before:h-[1.8px] before:bg-[#F2D0A4] hover:before:w-full before:transition-all">
-                  <Link to="/">رویدادها</Link>
+                  <Link to="/">رویداد ها</Link>
                 </li>
                 <li className="relative before:content-[''] before:absolute before:right-0 before:left-0 before:bottom-0 before:w-0 before:h-[1.8px] before:bg-[#F2D0A4] hover:before:w-full before:transition-all">
                   <Link to="/">اخبار</Link>

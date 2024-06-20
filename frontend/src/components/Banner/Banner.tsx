@@ -38,16 +38,16 @@ const Banner = () => {
                 "text-white font-dana md:mr-8 text-sm md:text-base flex flex-col gap-1 child:line-clamp-1"
               }
             >
-              <li className="pr-6 animate__animated animate__fadeInRightBig  relative before:content-[''] before:absolute before:top-0 before:bottom-0 before:right-0 before:my-auto before:size-2 before:bg-white before:rounded-full before:z-40">
+              <li className="pr-6 animate__animated animate__fadeInRightBig  relative before:content-[''] before:absolute before:top-0 before:bottom-0 before:right-0 before:my-auto before:size-2 before:bg-white before:rounded-full before:z-10">
                 فضایی مناسب و دوستانه جهت تفریح و رقابت
               </li>
-              <li className="pr-6 animate__animated animate__fadeInRightBig relative before:content-[''] before:absolute before:top-0 before:bottom-0 before:right-0 before:my-auto before:size-2 before:bg-white before:rounded-full before:z-40">
+              <li className="pr-6 animate__animated animate__fadeInRightBig relative before:content-[''] before:absolute before:top-0 before:bottom-0 before:right-0 before:my-auto before:size-2 before:bg-white before:rounded-full before:z-10">
                 دارای بوفه، با مد یریت استاد ترید، آقای محمودی
               </li>
-              <li className="pr-6 animate__animated animate__fadeInRightBig relative before:content-[''] before:absolute before:top-0 before:bottom-0 before:right-0 before:my-auto before:size-2 before:bg-white before:rounded-full before:z-40">
+              <li className="pr-6 animate__animated animate__fadeInRightBig relative before:content-[''] before:absolute before:top-0 before:bottom-0 before:right-0 before:my-auto before:size-2 before:bg-white before:rounded-full before:z-10">
                 دارای کلاس ها درسی مجهز به بروزترین ابزار های آموزشی
               </li>
-              <li className="pr-6 animate__animated animate__fadeInRightBig relative before:content-[''] before:absolute before:top-0 before:bottom-0 before:right-0 before:my-auto before:size-2 before:bg-white before:rounded-full before:z-40">
+              <li className="pr-6 animate__animated animate__fadeInRightBig relative before:content-[''] before:absolute before:top-0 before:bottom-0 before:right-0 before:my-auto before:size-2 before:bg-white before:rounded-full before:z-10">
                 زمین چمن مصنوعی و چندین امکانات ورزشی دیگر جهت رفاه دانش اموزان
               </li>
             </ul>
