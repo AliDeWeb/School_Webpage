@@ -69,6 +69,7 @@ const Home = () => {
                 slidesPerView: 4.2,
               },
             }}
+            dir={"rtl"}
           >
             <SwiperSlide className={"pt-4 pb-8 px-1"}>
               <ImagesCards
@@ -184,6 +185,7 @@ const Home = () => {
                 slidesPerView: 4.2,
               },
             }}
+            dir={"rtl"}
           >
             <SwiperSlide className={"pt-4 pb-8 px-1"}>
               <ImagesCards
