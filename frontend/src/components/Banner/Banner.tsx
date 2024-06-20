@@ -15,6 +15,7 @@ const Banner = () => {
     AOS.init({
       delay: 2000,
       duration: 1000,
+      once: true,
     });
   }, []);
 

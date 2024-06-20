@@ -22,7 +22,7 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   useEffect(() => {
-    AOS.init();
+    AOS.init({ delay: 0, duration: 400, once: false });
   }, []);
 
   return (
