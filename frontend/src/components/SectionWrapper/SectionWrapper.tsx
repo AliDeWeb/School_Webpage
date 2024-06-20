@@ -9,7 +9,7 @@ import { FaLessThan } from "react-icons/fa6";
 
 const SectionWrapper = (props: sectionWrapperPropsTypes) => {
   return (
-    <section className={"py-4 mb-80"}>
+    <section className={"py-4"}>
       <div className="container">
         <div>
           <div className={"flex items-center justify-between mb-6"}>
