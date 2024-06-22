@@ -708,18 +708,18 @@ img {
   margin-bottom: 1.5rem;
 }
 
-.line-clamp-4 {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 4;
-}
-
 .line-clamp-2 {
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
+}
+
+.line-clamp-4 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
 }
 
 .block {
@@ -776,6 +776,10 @@ img {
   width: 350px;
 }
 
+.w-\[550px\] {
+  width: 550px;
+}
+
 .w-full {
   width: 100%;
 }
@@ -783,6 +787,10 @@ img {
 .w-max {
   width: -moz-max-content;
   width: max-content;
+}
+
+.w-\[330px\] {
+  width: 330px;
 }
 
 .-translate-x-1\/2 {
@@ -922,6 +930,10 @@ img {
   text-align: left;
 }
 
+.text-center {
+  text-align: center;
+}
+
 .font-dana {
   font-family: dana;
 }
@@ -943,6 +955,11 @@ img {
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 
 .font-light {
@@ -1122,6 +1139,10 @@ img {
 }
 
 @media (min-width: 640px) {
+  .sm\:w-\[400px\] {
+    width: 400px;
+  }
+
   .sm\:flex-row {
     flex-direction: row;
   }
@@ -1138,6 +1159,11 @@ img {
   .sm\:text-base {
     font-size: 1rem;
     line-height: 1.5rem;
+  }
+
+  .sm\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
   }
 }
 
@@ -1160,6 +1186,10 @@ img {
 
   .md\:h-\[500px\] {
     height: 500px;
+  }
+
+  .md\:w-\[550px\] {
+    width: 550px;
   }
 
   .md\:text-3xl {
