@@ -13,48 +13,12 @@
   }
   img {
     @apply size-full;
+    user-select: none;
   }
 }
 @layer components {
   .btn {
     @apply rounded-xl py-1 px-3 transition-all;
     border: 1.8px solid #f2d0a4;
-  }
-  .photo-gallery-grid-container {
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 150px);
-    @media screen and (min-width: 500px) {
-      grid-template-rows: repeat(2, 200px);
-    }
-    @media screen and (min-width: 1024px) {
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(3, 200px);
-    }
-  }
-  .grid-pic-1 {
-    @media screen and (min-width: 1024px) {
-      grid-column: 1 / span 2;
-      grid-row: 1/1;
-    }
-  }
-  .grid-pic-2 {
-    @media screen and (min-width: 1024px) {
-      grid-column: 3 / span 1;
-      grid-row: 1/4;
-    }
-  }
-  .grid-pic-3 {
-    @media screen and (min-width: 1024px) {
-      grid-column: 1 / span 2;
-      grid-row: 2/2;
-    }
-  }
-  .grid-pic-4 {
-    @media screen and (min-width: 1024px) {
-      grid-column: 1 / span 2;
-      grid-row: 3/3;
-    }
   }
 }
