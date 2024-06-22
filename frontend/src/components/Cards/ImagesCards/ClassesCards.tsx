@@ -72,9 +72,13 @@ const ClassesCards = () => {
               avatar={
                 <Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=8" />
               }
-              title={<Link to={"/"}>کلاس آموزش برنامه نویسی و بازی سازی</Link>}
+              title={
+                <Link to={"/"} className={"font-danaBold"}>
+                  کلاس آموزش برنامه نویسی و بازی سازی
+                </Link>
+              }
               description={
-                <span className={"line-clamp-2"}>
+                <span className={"line-clamp-2 font-dana"}>
                   آموزش برنامه نویسی و بازی سازی مقدماتی تا پیشرفته با استفاده
                   از موتور unity و زبان قدرتمند C#
                 </span>
@@ -99,9 +103,13 @@ const ClassesCards = () => {
               avatar={
                 <Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=8" />
               }
-              title={<Link to={"/"}>کلاس آموزش برنامه نویسی و بازی سازی</Link>}
+              title={
+                <Link to={"/"} className={"font-danaBold"}>
+                  کلاس آموزش برنامه نویسی و بازی سازی
+                </Link>
+              }
               description={
-                <span className={"line-clamp-2"}>
+                <span className={"line-clamp-2 font-dana"}>
                   آموزش برنامه نویسی و بازی سازی مقدماتی تا پیشرفته با استفاده
                   از موتور unity و زبان قدرتمند C#
                 </span>
@@ -126,9 +134,13 @@ const ClassesCards = () => {
               avatar={
                 <Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=8" />
               }
-              title={<Link to={"/"}>کلاس آموزش برنامه نویسی و بازی سازی</Link>}
+              title={
+                <Link to={"/"} className={"font-danaBold"}>
+                  کلاس آموزش برنامه نویسی و بازی سازی
+                </Link>
+              }
               description={
-                <span className={"line-clamp-2"}>
+                <span className={"line-clamp-2 font-dana"}>
                   آموزش برنامه نویسی و بازی سازی مقدماتی تا پیشرفته با استفاده
                   از موتور unity و زبان قدرتمند C#
                 </span>
@@ -153,9 +165,13 @@ const ClassesCards = () => {
               avatar={
                 <Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=8" />
               }
-              title={<Link to={"/"}>کلاس آموزش برنامه نویسی و بازی سازی</Link>}
+              title={
+                <Link to={"/"} className={"font-danaBold"}>
+                  کلاس آموزش برنامه نویسی و بازی سازی
+                </Link>
+              }
               description={
-                <span className={"line-clamp-2"}>
+                <span className={"line-clamp-2 font-dana"}>
                   آموزش برنامه نویسی و بازی سازی مقدماتی تا پیشرفته با استفاده
                   از موتور unity و زبان قدرتمند C#
                 </span>
@@ -180,9 +196,13 @@ const ClassesCards = () => {
               avatar={
                 <Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=8" />
               }
-              title={<Link to={"/"}>کلاس آموزش برنامه نویسی و بازی سازی</Link>}
+              title={
+                <Link to={"/"} className={"font-danaBold"}>
+                  کلاس آموزش برنامه نویسی و بازی سازی
+                </Link>
+              }
               description={
-                <span className={"line-clamp-2"}>
+                <span className={"line-clamp-2 font-dana"}>
                   آموزش برنامه نویسی و بازی سازی مقدماتی تا پیشرفته با استفاده
                   از موتور unity و زبان قدرتمند C#
                 </span>
@@ -207,9 +227,13 @@ const ClassesCards = () => {
               avatar={
                 <Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=8" />
               }
-              title={<Link to={"/"}>کلاس آموزش برنامه نویسی و بازی سازی</Link>}
+              title={
+                <Link to={"/"} className={"font-danaBold"}>
+                  کلاس آموزش برنامه نویسی و بازی سازی
+                </Link>
+              }
               description={
-                <span className={"line-clamp-2"}>
+                <span className={"line-clamp-2 font-dana"}>
                   آموزش برنامه نویسی و بازی سازی مقدماتی تا پیشرفته با استفاده
                   از موتور unity و زبان قدرتمند C#
                 </span>
@@ -234,36 +258,13 @@ const ClassesCards = () => {
               avatar={
                 <Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=8" />
               }
-              title={<Link to={"/"}>کلاس آموزش برنامه نویسی و بازی سازی</Link>}
-              description={
-                <span className={"line-clamp-2"}>
-                  آموزش برنامه نویسی و بازی سازی مقدماتی تا پیشرفته با استفاده
-                  از موتور unity و زبان قدرتمند C#
-                </span>
+              title={
+                <Link to={"/"} className={"font-danaBold"}>
+                  کلاس آموزش برنامه نویسی و بازی سازی
+                </Link>
               }
-            />
-          </Card>
-        </SwiperSlide>
-        <SwiperSlide className={"pt-4 pb-8 px-1"}>
-          <Card
-            style={{ width: 320, background: "rgba(242,208,164,0.1)" }}
-            cover={
-              <Link to={"/"}>
-                <img
-                  alt="img"
-                  src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
-                  loading={"lazy"}
-                />
-              </Link>
-            }
-          >
-            <Meta
-              avatar={
-                <Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=8" />
-              }
-              title={<Link to={"/"}>کلاس آموزش برنامه نویسی و بازی سازی</Link>}
               description={
-                <span className={"line-clamp-2"}>
+                <span className={"line-clamp-2 font-dana"}>
                   آموزش برنامه نویسی و بازی سازی مقدماتی تا پیشرفته با استفاده
                   از موتور unity و زبان قدرتمند C#
                 </span>

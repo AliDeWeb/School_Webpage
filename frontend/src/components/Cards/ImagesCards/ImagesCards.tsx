@@ -19,7 +19,11 @@ const ImagesCards = (props: imagesCardsTypes) => {
       }
     >
       <Meta
-        title={<Link to={props.link}>{props.title}</Link>}
+        title={
+          <Link to={props.link} className={"font-danaBold"}>
+            {props.title}
+          </Link>
+        }
         description={
           <span className={"font-dana line-clamp-4"}>{props.description}</span>
         }
