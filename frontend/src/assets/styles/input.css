@@ -21,4 +21,10 @@
     @apply rounded-xl py-1 px-3 transition-all;
     border: 1.8px solid #f2d0a4;
   }
+  .ltr {
+    direction: ltr;
+  }
+  .rtl {
+    direction: rtl;
+  }
 }

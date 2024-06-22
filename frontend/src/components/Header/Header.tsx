@@ -22,7 +22,7 @@ const Header = () => {
   }, [isMenuOpen]);
 
   return (
-    <header className="py-4 shadow-md fixed top-0 left-0 right-0 w-full z-20 bg-[#fffcf0]">
+    <header className="py-4 shadow-md fixed top-0 left-0 right-0 w-full z-20 bg-[#fffcf0] h-[88px] flex items-center">
       {/*
           Hamburger Menu
       */}
@@ -115,7 +115,7 @@ const Header = () => {
           </div>
           <div className="font-dana hidden md:block">
             <Link
-              to="/"
+              to="/signup"
               className="btn flex items-center justify-center gap-1.5 text-sm lg:text-base"
             >
               <CiLogin size={"1.3em"} color={"#f1b163"} />
