@@ -1,52 +1,58 @@
-import { useEffect } from "react";
-
-// Aos Css
-import AOS from "aos";
-import "aos/dist/aos.css";
+// SwiperJs
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectCoverflow, Pagination, A11y, Autoplay } from "swiper/modules";
+import "swiper/css/effect-coverflow";
+import "swiper/css/pagination";
 
 const ImageGalleryGridSystem = () => {
-  useEffect(() => {
-    AOS.init({ delay: 400, duration: 400, once: false });
-  }, []);
-
   return (
-    <div
-      className={
-        "photo-gallery-grid-container child:overflow-hidden child:rounded-2xl child:shadow-md child:object-cover"
-      }
-    >
-      <div data-aos="fade-up" className="grid-pic-1">
-        <img
-          src="https://financialtribune.com/sites/default/files/7_1_mi_school_980_2.jpg"
-          alt="img"
-          loading={"lazy"}
-          className=""
-        />
-      </div>
-      <div data-aos="fade-left" className="grid-pic-2">
-        <img
-          src="https://financialtribune.com/sites/default/files/7_1_mi_school_980_2.jpg"
-          alt="img"
-          loading={"lazy"}
-          className=""
-        />
-      </div>
-      <div data-aos="fade-down" className="grid-pic-3">
-        <img
-          src="https://financialtribune.com/sites/default/files/7_1_mi_school_980_2.jpg"
-          alt="img"
-          loading={"lazy"}
-          className=""
-        />
-      </div>
-      <div data-aos="zoom-in" className="grid-pic-4">
-        <img
-          src="https://financialtribune.com/sites/default/files/7_1_mi_school_980_2.jpg"
-          alt="img"
-          loading={"lazy"}
-          className=""
-        />
-      </div>
+    <div>
+      <Swiper
+        effect={"coverflow"}
+        loop={true}
+        grabCursor={true}
+        centeredSlides={true}
+        slidesPerView={"auto"}
+        coverflowEffect={{
+          rotate: 50,
+          stretch: 0,
+          depth: 100,
+          modifier: 1,
+          slideShadows: true,
+        }}
+        autoplay={{
+          delay: 5000,
+          pauseOnMouseEnter: true,
+        }}
+        pagination={true}
+        modules={[EffectCoverflow, Pagination, Autoplay, A11y]}
+        className="mySwiper"
+      >
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
+        </SwiperSlide>
+      </Swiper>
     </div>
   );
 };
