@@ -8,6 +8,7 @@ import {
   SectionWrapper,
   ImagesCards,
   MemoryCard,
+  ImageGalleryGridSystem,
 } from "../../configs/layout";
 
 // SwiperJs
@@ -289,6 +290,9 @@ const Home = () => {
               }
             />
           </div>
+        </SectionWrapper>
+        <SectionWrapper title={"گالری تصاویر"} link={"/"}>
+          <ImageGalleryGridSystem />
         </SectionWrapper>
       </main>
       <Footer />
