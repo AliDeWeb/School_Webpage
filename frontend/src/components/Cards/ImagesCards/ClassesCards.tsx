@@ -3,10 +3,9 @@ import { Avatar, Card } from "antd";
 const { Meta } = Card;
 
 // SwiperJs
-import { Pagination, A11y, Autoplay } from "swiper/modules";
+import { A11y, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import "swiper/css/pagination";
 
 // React Router
 import { Link } from "react-router-dom";
@@ -17,13 +16,12 @@ const ClassesCards = () => {
       <Swiper
         spaceBetween={20}
         slidesPerView={1}
-        modules={[Pagination, Autoplay, A11y]}
+        modules={[Autoplay, A11y]}
         autoplay={{
           delay: 3000,
           pauseOnMouseEnter: true,
         }}
         loop={true}
-        pagination={{ clickable: true }}
         breakpoints={{
           370: {
             slidesPerView: 1.1,

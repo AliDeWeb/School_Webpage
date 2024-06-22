@@ -1,8 +1,7 @@
 // SwiperJs
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCoverflow, Pagination } from "swiper/modules";
+import { EffectCoverflow } from "swiper/modules";
 import "swiper/css/effect-coverflow";
-import "swiper/css/pagination";
 
 const ImageGalleryGridSystem = () => {
   return (
@@ -21,8 +20,7 @@ const ImageGalleryGridSystem = () => {
           modifier: 1,
           slideShadows: true,
         }}
-        pagination={true}
-        modules={[EffectCoverflow, Pagination]}
+        modules={[EffectCoverflow]}
         dir={"rtl"}
       >
         <SwiperSlide

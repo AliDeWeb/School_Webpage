@@ -13,10 +13,9 @@ import {
 } from "../../configs/layout";
 
 // SwiperJs
-import { Pagination, A11y, Autoplay } from "swiper/modules";
+import { A11y, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import "swiper/css/pagination";
 
 // Aos Css
 import AOS from "aos";
@@ -36,13 +35,12 @@ const Home = () => {
           <Swiper
             spaceBetween={20}
             slidesPerView={1}
-            modules={[Pagination, Autoplay, A11y]}
+            modules={[Autoplay, A11y]}
             autoplay={{
               delay: 3000,
               pauseOnMouseEnter: true,
             }}
             loop={true}
-            pagination={{ clickable: true }}
             breakpoints={{
               370: {
                 slidesPerView: 1.1,
@@ -74,7 +72,7 @@ const Home = () => {
             }}
             dir={"rtl"}
           >
-            <SwiperSlide className={"pt-4 pb-8 px-1"}>
+            <SwiperSlide>
               <ImagesCards
                 title={"دعوت به همکاری مدرس آموزش خانواده در آموزش و پرورش"}
                 description={
@@ -86,7 +84,7 @@ const Home = () => {
                 }
               />
             </SwiperSlide>
-            <SwiperSlide className={"pt-4 pb-8 px-1"}>
+            <SwiperSlide>
               <ImagesCards
                 title={"دعوت به همکاری مدرس آموزش خانواده در آموزش و پرورش"}
                 description={
@@ -98,7 +96,7 @@ const Home = () => {
                 }
               />
             </SwiperSlide>
-            <SwiperSlide className={"pt-4 pb-8 px-1"}>
+            <SwiperSlide>
               <ImagesCards
                 title={"دعوت به همکاری مدرس آموزش خانواده در آموزش و پرورش"}
                 description={
@@ -110,7 +108,7 @@ const Home = () => {
                 }
               />
             </SwiperSlide>
-            <SwiperSlide className={"pt-4 pb-8 px-1"}>
+            <SwiperSlide>
               <ImagesCards
                 title={"دعوت به همکاری مدرس آموزش خانواده در آموزش و پرورش"}
                 description={
@@ -122,7 +120,7 @@ const Home = () => {
                 }
               />
             </SwiperSlide>
-            <SwiperSlide className={"pt-4 pb-8 px-1"}>
+            <SwiperSlide>
               <ImagesCards
                 title={"دعوت به همکاری مدرس آموزش خانواده در آموزش و پرورش"}
                 description={
@@ -134,7 +132,7 @@ const Home = () => {
                 }
               />
             </SwiperSlide>
-            <SwiperSlide className={"pt-4 pb-8 px-1"}>
+            <SwiperSlide>
               <ImagesCards
                 title={"دعوت به همکاری مدرس آموزش خانواده در آموزش و پرورش"}
                 description={
@@ -152,13 +150,12 @@ const Home = () => {
           <Swiper
             spaceBetween={20}
             slidesPerView={1}
-            modules={[Pagination, Autoplay, A11y]}
+            modules={[Autoplay, A11y]}
             autoplay={{
               delay: 3000,
               pauseOnMouseEnter: true,
             }}
             loop={true}
-            pagination={{ clickable: true }}
             breakpoints={{
               370: {
                 slidesPerView: 1.1,
@@ -190,7 +187,7 @@ const Home = () => {
             }}
             dir={"rtl"}
           >
-            <SwiperSlide className={"pt-4 pb-8 px-1"}>
+            <SwiperSlide>
               <ImagesCards
                 title={"دعوت به همکاری مدرس آموزش خانواده در آموزش و پرورش"}
                 description={
@@ -202,7 +199,7 @@ const Home = () => {
                 }
               />
             </SwiperSlide>
-            <SwiperSlide className={"pt-4 pb-8 px-1"}>
+            <SwiperSlide>
               <ImagesCards
                 title={"دعوت به همکاری مدرس آموزش خانواده در آموزش و پرورش"}
                 description={
@@ -214,7 +211,7 @@ const Home = () => {
                 }
               />
             </SwiperSlide>
-            <SwiperSlide className={"pt-4 pb-8 px-1"}>
+            <SwiperSlide>
               <ImagesCards
                 title={"دعوت به همکاری مدرس آموزش خانواده در آموزش و پرورش"}
                 description={
@@ -226,7 +223,7 @@ const Home = () => {
                 }
               />
             </SwiperSlide>
-            <SwiperSlide className={"pt-4 pb-8 px-1"}>
+            <SwiperSlide>
               <ImagesCards
                 title={"دعوت به همکاری مدرس آموزش خانواده در آموزش و پرورش"}
                 description={
@@ -238,7 +235,7 @@ const Home = () => {
                 }
               />
             </SwiperSlide>
-            <SwiperSlide className={"pt-4 pb-8 px-1"}>
+            <SwiperSlide>
               <ImagesCards
                 title={"دعوت به همکاری مدرس آموزش خانواده در آموزش و پرورش"}
                 description={
