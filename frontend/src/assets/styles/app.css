@@ -4,3 +4,20 @@
 :root {
   --swiper-pagination-color: rgba(240, 159, 62, 0.75);
 }
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+::-webkit-scrollbar-track {
+  background: #fffcf0;
+  border-radius: 1rem;
+}
+::-webkit-scrollbar-thumb {
+  background: #b1a7a7;
+  border-radius: 1rem;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c3bcbc;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #807c7c;
+}
