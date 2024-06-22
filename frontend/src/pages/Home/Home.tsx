@@ -37,7 +37,7 @@ const Home = () => {
             slidesPerView={1}
             modules={[Pagination, Autoplay, A11y]}
             autoplay={{
-              delay: 5000,
+              delay: 3000,
               pauseOnMouseEnter: true,
             }}
             loop={true}
@@ -153,7 +153,7 @@ const Home = () => {
             slidesPerView={1}
             modules={[Pagination, Autoplay, A11y]}
             autoplay={{
-              delay: 5000,
+              delay: 3000,
               pauseOnMouseEnter: true,
             }}
             loop={true}
