@@ -48,31 +48,39 @@ const Header = () => {
         <div className={"pr-4"}>
           <nav>
             <ul className="flex flex-col text-sm gap-4 font-dana">
-              <li className="relative before:content-[''] before:absolute before:right-0 before:left-0 before:bottom-0 before:w-0 before:h-[1.8px] before:bg-[#F2D0A4] hover:before:w-full before:transition-all">
+              <li>
                 <Link to="/" className={"flex items-center gap-2"}>
                   <IoHomeOutline size={"1.2em"} />
                   صفحه اصلی
                 </Link>
               </li>
-              <li className="relative before:content-[''] before:absolute before:right-0 before:left-0 before:bottom-0 before:w-0 before:h-[1.8px] before:bg-[#F2D0A4] hover:before:w-full before:transition-all">
+              <li>
                 <Link to="/" className={"flex items-center gap-2"}>
                   <MdOutlineEventAvailable size={"1.2em"} />
                   رویداد ها
                 </Link>
               </li>
-              <li className="relative before:content-[''] before:absolute before:right-0 before:left-0 before:bottom-0 before:w-0 before:h-[1.8px] before:bg-[#F2D0A4] hover:before:w-full before:transition-all">
+              <li>
                 <Link to="/" className={"flex items-center gap-2"}>
                   <PiNewspaperClipping size={"1.3em"} />
                   اخبار
                 </Link>
               </li>
-              <li className="relative before:content-[''] before:absolute before:right-0 before:left-0 before:bottom-0 before:w-0 before:h-[1.8px] before:bg-[#F2D0A4] hover:before:w-full before:transition-all">
+              <li>
                 <Link to="/" className={"flex items-center gap-2"}>
                   <MdOutlinePhotoCameraBack size={"1.2em"} />
                   گالری تصاویر
                 </Link>
               </li>
             </ul>
+            <hr className={"my-5"} />
+            <Link
+              to="/signup"
+              className="btn flex items-center justify-center gap-1.5 text-sm lg:text-base font-dana"
+            >
+              <CiLogin size={"1.3em"} color={"#f1b163"} />
+              ثبت نام
+            </Link>
           </nav>
         </div>
       </div>
