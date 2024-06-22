@@ -9,6 +9,7 @@ import {
   ImagesCards,
   MemoryCard,
   ImageGalleryGridSystem,
+  ClassesCards,
 } from "../../configs/layout";
 
 // SwiperJs
@@ -293,6 +294,9 @@ const Home = () => {
         </SectionWrapper>
         <SectionWrapper title={"گالری تصاویر"} link={"/"}>
           <ImageGalleryGridSystem />
+        </SectionWrapper>
+        <SectionWrapper title={"برنامه های تابستانه"} link={"/"}>
+          <ClassesCards />
         </SectionWrapper>
       </main>
       <Footer />
