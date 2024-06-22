@@ -3,6 +3,7 @@ import { useEffect } from "react";
 // Components
 import {
   Header,
+  Footer,
   Banner,
   SectionWrapper,
   ImagesCards,
@@ -290,6 +291,7 @@ const Home = () => {
           </div>
         </SectionWrapper>
       </main>
+      <Footer />
     </>
   );
 };
