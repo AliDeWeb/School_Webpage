@@ -32,7 +32,7 @@ const Login = () => {
       <form
         onSubmit={handleSubmit(SubmitHandler)}
         className={
-          "flex flex-col w-[320px] rounded-2xl shadow-2xl py-6 px-5 bg-amber-100/10"
+          "my-10 flex flex-col w-[320px] rounded-2xl shadow-2xl py-6 px-5 bg-amber-100/10"
         }
       >
         <label htmlFor={"phone"} className={"font-danaBold mb-1 text-sm"}>
