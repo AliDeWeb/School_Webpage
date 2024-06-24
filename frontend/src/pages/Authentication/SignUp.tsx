@@ -22,6 +22,7 @@ const SignUp = () => {
     lastName: string;
     name: string;
     phone: string;
+    password: string;
   }) => console.log(data);
 
   return (
@@ -90,8 +91,9 @@ const SignUp = () => {
           type="text"
           id={"phone"}
           placeholder={"09123456789"}
+          dir={"ltr"}
           className={
-            "mb-4 font-dana outline-none bg-transparent p-2 border-b-2 border-solid border-b-[#f2d0a4]/35 focus:border-b-[#f2d0a4]/60 rounded-md text-sm"
+            "ltr mb-4 font-dana outline-none bg-transparent p-2 border-b-2 border-solid border-b-[#f2d0a4]/35 focus:border-b-[#f2d0a4]/60 rounded-md text-sm"
           }
         />
         {errors.phone && (
@@ -155,7 +157,7 @@ const SignUp = () => {
         <input
           {...register("password", {
             required: "رمز عبور خود را وارد نمایید!",
-            min: {
+            minLength: {
               value: 8,
               message: "رمز عبور حداقل باید 8 رقم باشد!",
             },

@@ -1,6 +1,7 @@
 // Pages
 export { default as Home } from "../pages/Home/Home";
 export { default as SignUp } from "../pages/Authentication/SignUp";
+export { default as Login } from "../pages/Authentication/Login";
 export { default as Page404 } from "../pages/Page404/Page404";
 
 // Components
