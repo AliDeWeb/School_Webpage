@@ -32,7 +32,6 @@ const ImageGalleryGridSystem = () => {
           }}
         >
           <img
-            loading={"lazy"}
             className={"rounded-2xl block w-full"}
             src="https://swiperjs.com/demos/images/nature-1.jpg"
           />
@@ -46,7 +45,6 @@ const ImageGalleryGridSystem = () => {
           }}
         >
           <img
-            loading={"lazy"}
             className={"rounded-2xl block w-full"}
             src="https://swiperjs.com/demos/images/nature-2.jpg"
           />
@@ -60,7 +58,6 @@ const ImageGalleryGridSystem = () => {
           }}
         >
           <img
-            loading={"lazy"}
             className={"rounded-2xl block w-full"}
             src="https://swiperjs.com/demos/images/nature-3.jpg"
           />
@@ -74,7 +71,6 @@ const ImageGalleryGridSystem = () => {
           }}
         >
           <img
-            loading={"lazy"}
             className={"rounded-2xl block w-full"}
             src="https://swiperjs.com/demos/images/nature-4.jpg"
           />
@@ -88,7 +84,6 @@ const ImageGalleryGridSystem = () => {
           }}
         >
           <img
-            loading={"lazy"}
             className={"rounded-2xl block w-full"}
             src="https://swiperjs.com/demos/images/nature-5.jpg"
           />
@@ -102,7 +97,6 @@ const ImageGalleryGridSystem = () => {
           }}
         >
           <img
-            loading={"lazy"}
             className={"rounded-2xl block w-full"}
             src="https://swiperjs.com/demos/images/nature-6.jpg"
           />
@@ -116,7 +110,6 @@ const ImageGalleryGridSystem = () => {
           }}
         >
           <img
-            loading={"lazy"}
             className={"rounded-2xl block w-full"}
             src="https://swiperjs.com/demos/images/nature-7.jpg"
           />
@@ -130,7 +123,6 @@ const ImageGalleryGridSystem = () => {
           }}
         >
           <img
-            loading={"lazy"}
             className={"rounded-2xl block w-full"}
             src="https://swiperjs.com/demos/images/nature-8.jpg"
           />
