@@ -4,4 +4,5 @@ export interface Inputs {
   lastName: string;
   name: string;
   phone: string;
+  password: string;
 }

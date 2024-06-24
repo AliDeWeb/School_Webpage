@@ -7,6 +7,9 @@ import { Header, Footer } from "../../configs/layout";
 // React Hook From
 import { useForm, SubmitHandler } from "react-hook-form";
 
+// React Router
+import { Link } from "react-router-dom";
+
 const SignUp = () => {
   const {
     register,
@@ -146,6 +149,31 @@ const SignUp = () => {
           </span>
         )}
 
+        <label htmlFor="password" className={"font-danaBold mb-1 text-sm"}>
+          رمز عبور
+        </label>
+        <input
+          {...register("password", {
+            required: "رمز عبور خود را وارد نمایید!",
+            min: {
+              value: 8,
+              message: "رمز عبور حداقل باید 8 رقم باشد!",
+            },
+          })}
+          type="password"
+          id={"password"}
+          placeholder={"12345678"}
+          dir={"ltr"}
+          className={
+            "ltr mb-4 font-dana outline-none bg-transparent p-2 border-b-2 border-solid border-b-[#f2d0a4]/35 focus:border-b-[#f2d0a4]/60 rounded-md text-sm"
+          }
+        />
+        {errors.password && (
+          <span className={"text-sm font-dana text-red-600 mb-4"}>
+            * {errors.password.message as string}
+          </span>
+        )}
+
         <input
           type="submit"
           value={"ثبت نام"}
@@ -153,6 +181,13 @@ const SignUp = () => {
             "font-danaBold py-2 w-full rounded-xl bg-[#f2d0a4]/60 hover:bg-[#f2d0a4] text-sm cursor-pointer transition-all"
           }
         />
+
+        <span className={"font-dana text-xs mt-3"}>
+          ثبت نام کرده اید؟{" "}
+          <Link to={"/login"} className={"text-red-600"}>
+            ورود
+          </Link>
+        </span>
       </form>
       <Footer />
     </div>
