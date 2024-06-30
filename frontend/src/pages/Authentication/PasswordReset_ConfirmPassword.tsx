@@ -1,5 +1,5 @@
 // Types
-import { Inputs } from "./Login.types.ts";
+import { Inputs } from "./PasswordReset_ConfirmPassword.types";
 
 // Components
 import { Header, Footer } from "../../configs/layout";
@@ -10,16 +10,14 @@ import { useForm, SubmitHandler } from "react-hook-form";
 // React Router
 import { Link } from "react-router-dom";
 
-const Login = () => {
+const PasswordReset_ConfirmPassword = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>();
-  const SubmitHandler: SubmitHandler<Inputs> = (data: {
-    phone: string;
-    password: string;
-  }) => console.log(data);
+  const SubmitHandler: SubmitHandler<Inputs> = (data: { password: string }) =>
+    console.log(data);
 
   return (
     <div
@@ -35,33 +33,8 @@ const Login = () => {
           "my-10 flex flex-col w-[320px] rounded-2xl shadow-2xl py-6 px-5 bg-amber-100/10"
         }
       >
-        <label htmlFor={"phone"} className={"font-danaBold mb-1 text-sm"}>
-          شماره تلفن:
-        </label>
-        <input
-          {...register("phone", {
-            required: "شماره تلفن خود را وارد نمایید!",
-            pattern: {
-              value: /^09\d{9}$/g,
-              message: "شماره تلفن را به درستی وارد نمایید!",
-            },
-          })}
-          type="text"
-          id={"phone"}
-          placeholder={"09123456789"}
-          dir={"ltr"}
-          className={
-            "ltr mb-4 font-dana outline-none bg-transparent p-2 border-b-2 border-solid border-b-[#f2d0a4]/35 focus:border-b-[#f2d0a4]/60 rounded-md text-sm"
-          }
-        />
-        {errors.phone && (
-          <span className={"text-sm font-dana text-red-600 mb-4"}>
-            * {errors.phone.message as string}
-          </span>
-        )}
-
-        <label htmlFor="password" className={"font-danaBold mb-1 text-sm"}>
-          رمز عبور
+        <label htmlFor={"password"} className={"font-danaBold mb-1 text-sm"}>
+          رمز عبور جدید:
         </label>
         <input
           {...register("password", {
@@ -85,24 +58,18 @@ const Login = () => {
           </span>
         )}
 
-        <input
-          type="submit"
-          value={"ورود"}
+        <button
+          type={"submit"}
           className={
             "font-danaBold py-2 w-full rounded-xl bg-[#f2d0a4]/60 hover:bg-[#f2d0a4] text-sm cursor-pointer transition-all"
           }
-        />
+        >
+          <Link to={"/confirm-password"}>ادامه</Link>
+        </button>
 
         <span className={"font-dana text-xs mt-3"}>
-          حساب کاربری ندارید؟{" "}
-          <Link to={"/signup"} className={"text-red-600"}>
-            ساخت حساب
-          </Link>
-        </span>
-        <span className={"font-dana text-xs mt-3"}>
-          رمز عبور خود را فراموش کرده اید؟{" "}
           <Link to={"/confirm-email"} className={"text-red-600"}>
-            بازیابی
+            بازگشت به صفحه ورود
           </Link>
         </span>
       </form>
@@ -111,4 +78,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default PasswordReset_ConfirmPassword;
