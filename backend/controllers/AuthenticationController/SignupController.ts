@@ -2,7 +2,6 @@ import { NextFunction, Request, Response } from "express";
 import UserModel from "../../models/UserModel/UserModel";
 import catchAsync from "../../utils/CatchAsync/CatchAsync";
 import jwt from "jsonwebtoken";
-import userModel from "../../models/UserModel/UserModel";
 import AppError from "../../utils/AppError/AppError";
 
 export const signup = catchAsync(
@@ -23,7 +22,7 @@ export const signup = catchAsync(
       password: string;
     } = req.body;
 
-    const isAnyUserExistUser = await userModel.findOne({ phoneNumber });
+    const isAnyUserExistUser = await UserModel.findOne({ phoneNumber });
     if ((isAnyUserExistUser as { phoneNumber: string })?.phoneNumber)
       next(new AppError("شما با این شماره تلفن حساب کاربری دارید", 401));
 

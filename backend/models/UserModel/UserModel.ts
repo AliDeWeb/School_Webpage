@@ -1,8 +1,9 @@
-import mongoose from "mongoose";
+import mongoose, { Model } from "mongoose";
 const { Schema } = mongoose;
 import bcrypt from "bcrypt";
+import UserModelTypes from "./UserModel.types";
 
-const userSchema = new Schema(
+const userSchema = new Schema<UserModelTypes>(
   {
     role: {
       type: String,
@@ -17,10 +18,11 @@ const userSchema = new Schema(
       type: String,
       required: [true, "نام خانوادگی خود را وارد نمایید!"],
     },
+    // @ts-ignore
     phoneNumber: {
       type: String,
       required: [true, "شماره تلفن خود را وارد نمایید!"],
-      unique: [true, "شما با این شماره تلفن حساب کاربری دارید!"],
+      unique: "شما با این شماره تلفن حساب کاربری دارید!",
       validate: {
         validator: function (el: string) {
           const phoneRegex = /^09\d{9}$/;
@@ -52,9 +54,19 @@ const userSchema = new Schema(
 userSchema.pre(`save`, async function (next) {
   if (!this.isModified(`password`)) return next();
 
+  // @ts-ignore
   this.password = await bcrypt.hash(this.password, 12);
 });
 
+// Methods
+// <-- Comparing Passwords -->
+userSchema.methods.isPasswordCorrect = async (input: string, pass: string) => {
+  return await bcrypt.compare(input, pass);
+};
+
 // Model
-const UserModel = mongoose.model(`Users`, userSchema);
+const UserModel: Model<UserModelTypes> = mongoose.model<UserModelTypes>(
+  `Users`,
+  userSchema,
+);
 export default UserModel;
