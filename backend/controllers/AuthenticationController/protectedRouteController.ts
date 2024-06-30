@@ -4,10 +4,10 @@ import jwt from "jsonwebtoken";
 import UserModel from "../../models/UserModel/UserModel";
 import catchAsync from "../../utils/CatchAsync/CatchAsync";
 import UserModelTypes from "../../models/UserModel/UserModel.types";
-import { getMeRequestType } from "../../utils/AppTypes/AppTypes";
+import { protectedRouteRequestType } from "../../utils/AppTypes/AppTypes";
 
-export const getMe = catchAsync(
-  async (req: getMeRequestType, res: Response, next: NextFunction) => {
+export const protectedRoute = catchAsync(
+  async (req: protectedRouteRequestType, res: Response, next: NextFunction) => {
     const token = req.headers.authorization?.split(" ")[1];
 
     if (!token) return next(new AppError("لطفا وارد حساب خود شوید", 403));
@@ -37,16 +37,6 @@ export const getMe = catchAsync(
 
     req.user = isAnyUserExist as UserModelTypes;
 
-    res.status(201).json({
-      data: {
-        name: (isAnyUserExist as UserModelTypes).name,
-        lastName: (isAnyUserExist as UserModelTypes).lastName,
-        phoneNumber: (isAnyUserExist as UserModelTypes).phoneNumber,
-        classNumber: (isAnyUserExist as UserModelTypes).classNumber,
-        birthday: (isAnyUserExist as UserModelTypes).birthday,
-      },
-    });
-
-    // next();
+    next();
   },
 );
