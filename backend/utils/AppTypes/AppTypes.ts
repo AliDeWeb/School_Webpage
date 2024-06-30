@@ -5,4 +5,6 @@ interface getMeRequestType extends Request {
   user?: UserModelTypes;
 }
 
-export { getMeRequestType };
+type userRoles = "admin" | "user";
+
+export { getMeRequestType, userRoles };
