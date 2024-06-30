@@ -12,20 +12,20 @@ export const login = catchAsync(
     phoneNumber = phoneNumber.trim().toLowerCase();
     password = password.trim().toLowerCase();
 
-    const isAnyUserExistUser = await UserModel.findOne({ phoneNumber });
+    const isAnyUserExist = await UserModel.findOne({ phoneNumber });
 
     if (
-      !isAnyUserExistUser ||
-      !(await isAnyUserExistUser.isPasswordCorrect(
+      !isAnyUserExist ||
+      !(await isAnyUserExist.isPasswordCorrect(
         password,
-        isAnyUserExistUser.password,
+        isAnyUserExist.password,
       ))
     ) {
       return next(new AppError("شماره تلفن یا رمز عبور درست نیست", 401));
     }
 
     const token = jwt.sign(
-      { id: isAnyUserExistUser._id },
+      { id: isAnyUserExist._id },
       process.env.JWT_SECRET as string,
       { expiresIn: process.env.JWT_EXPIRES_IN as string },
     );
@@ -34,11 +34,11 @@ export const login = catchAsync(
       message: "خوش آمدید",
       token,
       data: {
-        name: isAnyUserExistUser.name,
-        lastName: isAnyUserExistUser.lastName,
-        phoneNumber: isAnyUserExistUser.phoneNumber,
-        classNumber: isAnyUserExistUser.classNumber,
-        birthday: isAnyUserExistUser.birthday,
+        name: isAnyUserExist.name,
+        lastName: isAnyUserExist.lastName,
+        phoneNumber: isAnyUserExist.phoneNumber,
+        classNumber: isAnyUserExist.classNumber,
+        birthday: isAnyUserExist.birthday,
       },
     });
 

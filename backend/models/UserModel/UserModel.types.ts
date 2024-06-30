@@ -8,8 +8,10 @@ interface UserModelTypes extends Document {
   role: "user" | "admin";
   classNumber: "101" | "102" | "103" | "104" | "105" | "106";
   birthday: Date;
+  passwordUpdatedAt: Date;
 
-  isPasswordCorrect: (input: string, pass: string) => Promise<boolean>;
+  isPasswordCorrect(input: string, pass: string): Promise<boolean>;
+  isTokenValid(passwordUpdatedAt: Date, tokenExpiresIn: number): boolean;
 }
 
 export default UserModelTypes;

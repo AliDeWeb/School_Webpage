@@ -67,6 +67,17 @@ userSchema.pre(`save`, async function (next) {
 userSchema.methods.isPasswordCorrect = async (input: string, pass: string) => {
   return await bcrypt.compare(input, pass);
 };
+// <-- Check If Token Is Valid -->
+userSchema.methods.isTokenValid = (
+  passwordUpdatedAt: Date,
+  tokenExpiresIn: number,
+): boolean => {
+  console.log(tokenExpiresIn, passwordUpdatedAt.getDate());
+  const passwordChangedTimestamp = Math.floor(
+    passwordUpdatedAt.getTime() / 1000,
+  );
+  return tokenExpiresIn > passwordChangedTimestamp;
+};
 
 // Model
 const UserModel: Model<UserModelTypes> = mongoose.model<UserModelTypes>(
