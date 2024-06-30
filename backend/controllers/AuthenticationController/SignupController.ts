@@ -27,12 +27,12 @@ export const signup = catchAsync(
       next(new AppError("شما با این شماره تلفن حساب کاربری دارید", 401));
 
     const newUser = await UserModel.create({
-      name,
-      lastName,
-      phoneNumber,
-      classNumber,
-      birthday,
-      password,
+      name: name.trim().toLowerCase(),
+      lastName: lastName.trim().toLowerCase(),
+      phoneNumber: phoneNumber.trim().toLowerCase(),
+      classNumber: classNumber.trim().toLowerCase(),
+      birthday: birthday.trim().toLowerCase(),
+      password: password.trim().toLowerCase(),
     });
 
     const token = jwt.sign(
