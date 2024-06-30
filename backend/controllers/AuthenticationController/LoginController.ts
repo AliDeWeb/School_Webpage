@@ -6,8 +6,11 @@ import jwt from "jsonwebtoken";
 
 export const login = catchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
-    const { phoneNumber, password }: { phoneNumber: string; password: string } =
+    let { phoneNumber, password }: { phoneNumber: string; password: string } =
       req.body;
+
+    phoneNumber = phoneNumber.trim().toLowerCase();
+    password = password.trim().toLowerCase();
 
     const isAnyUserExistUser = await UserModel.findOne({ phoneNumber });
 
@@ -38,5 +41,7 @@ export const login = catchAsync(
         birthday: isAnyUserExistUser.birthday,
       },
     });
+
+    next();
   },
 );

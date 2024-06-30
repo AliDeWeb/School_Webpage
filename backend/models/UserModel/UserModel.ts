@@ -43,6 +43,10 @@ const userSchema = new Schema<UserModelTypes>(
       required: [true, "رمز عبور خود را وارد نمایید!"],
       minLength: [8, "رمز عبور حداقل باید 8 رقم داشته باشد!"],
     },
+    passwordUpdatedAt: {
+      type: Date,
+      default: Date.now(),
+    },
   },
   {
     timestamps: true,

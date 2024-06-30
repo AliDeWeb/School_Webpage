@@ -31,8 +31,8 @@ export const signup = catchAsync(
       lastName: lastName.trim().toLowerCase(),
       phoneNumber: phoneNumber.trim().toLowerCase(),
       classNumber: classNumber.trim().toLowerCase(),
-      birthday: birthday.trim().toLowerCase(),
       password: password.trim().toLowerCase(),
+      birthday,
     });
 
     const token = jwt.sign(
