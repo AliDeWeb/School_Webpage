@@ -12,6 +12,11 @@ export const login = catchAsync(
     phoneNumber = phoneNumber.trim().toLowerCase();
     password = password.trim().toLowerCase();
 
+    if (!phoneNumber || !password)
+      return next(
+        new AppError("شماره تلفن و رمز عبور خود را وارد نمایید", 403),
+      );
+
     const isAnyUserExist = await UserModel.findOne({ phoneNumber });
 
     if (
