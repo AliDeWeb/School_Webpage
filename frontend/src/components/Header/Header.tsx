@@ -27,7 +27,7 @@ const Header = () => {
           Hamburger Menu
       */}
       <div
-        className={`${isMenuOpen ? "right-0" : "-right-[300px]"} transition-all fixed z-30 top-0 bottom-0 bg-[#fffcf0] rounded-l-xl min-h-[100dvh] w-[300px] shadow-xl py-5 px-4`}
+        className={`${isMenuOpen ? "right-0" : "-right-[300px]"} transition-all duration-300 fixed z-30 top-0 bottom-0 bg-[#fffcf0] rounded-l-xl min-h-[100dvh] w-[300px] shadow-xl py-5 px-4`}
       >
         <div>
           <div className={"flex items-center justify-between"}>
