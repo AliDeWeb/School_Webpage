@@ -61,6 +61,13 @@ userSchema.pre(`save`, async function (next) {
   // @ts-ignore
   this.password = await bcrypt.hash(this.password, 12);
 });
+// <-- Update passwordUpdatedAt When Password Changes -->
+userSchema.pre(`save`, async function (next) {
+  if (!this.isModified(`password`) || this.isNew) return next();
+
+  // @ts-ignore
+  this.passwordUpdatedAt = Date.now() - 1000;
+});
 
 // Methods
 // <-- Comparing Passwords -->
