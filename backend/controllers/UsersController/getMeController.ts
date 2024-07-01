@@ -1,4 +1,4 @@
-import { NextFunction,Response } from "express";
+import { NextFunction, Response } from "express";
 import { protectedRouteRequestType } from "../../utils/AppTypes/AppTypes";
 import catchAsync from "../../utils/CatchAsync/CatchAsync";
 
@@ -11,6 +11,7 @@ export const getMe = catchAsync(
         phoneNumber: req?.user?.phoneNumber,
         classNumber: req?.user?.classNumber,
         birthday: req?.user?.birthday,
+        articles: req?.user?.articles,
       },
     });
 

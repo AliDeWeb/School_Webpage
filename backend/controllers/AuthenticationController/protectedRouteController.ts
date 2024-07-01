@@ -35,6 +35,13 @@ export const protectedRoute = catchAsync(
 
     if (!isTokenValid) return next(new AppError("توکن معتبر نیست", 403));
 
+    if (isAnyUserExist?.role === "admin") {
+      await isAnyUserExist.populate({
+        path: "articles",
+        select: "-author -__v -updatedAt",
+      });
+    }
+
     req.user = isAnyUserExist as UserModelTypes;
 
     next();

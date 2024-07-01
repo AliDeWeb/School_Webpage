@@ -57,8 +57,17 @@ const userSchema = new Schema<UserModelTypes>(
   },
   {
     timestamps: true,
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true },
   },
 );
+
+// Virtuals
+userSchema.virtual("articles", {
+  ref: "Articles",
+  foreignField: "author",
+  localField: "_id",
+});
 
 // Middlewares
 // <-- Hash Password -->
