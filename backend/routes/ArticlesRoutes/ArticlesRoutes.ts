@@ -7,7 +7,10 @@ import {
 import { protectedRoute } from "../../controllers/AuthenticationController/protectedRouteController";
 import { restrictTo } from "../../controllers/AuthenticationController/RestrictToController";
 import { articlesValidator } from "../../validators/ArticlesValidators/ArticlesValidators";
-import { getAllArticles } from "../../controllers/ArticlesController/GetAllArticlesController";
+import {
+  getAllArticles,
+  getAllNews,
+} from "../../controllers/ArticlesController/GetAllArticlesController";
 
 const router = express.Router();
 
@@ -23,5 +26,7 @@ router
     articlesValidator,
     addNewArticle,
   );
+
+router.route("/news").get(getAllNews);
 
 export default router;

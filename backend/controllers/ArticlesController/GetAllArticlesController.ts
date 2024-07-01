@@ -19,3 +19,30 @@ export const getAllArticles = catchAsync(
     });
   },
 );
+
+export const getAllNews = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const news = await ArticleModel.aggregate([
+      {
+        $match: { category: "news" },
+      },
+      {
+        $project: {
+          __v: 0,
+          updatedAt: 0,
+        },
+      },
+    ]);
+
+    await ArticleModel.populate(news, {
+      path: "author",
+      select: "name lastName phoneNumber",
+    });
+
+    res.status(200).json({
+      data: {
+        news,
+      },
+    });
+  },
+);
