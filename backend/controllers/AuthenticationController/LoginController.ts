@@ -46,7 +46,5 @@ export const login = catchAsync(
         birthday: isAnyUserExist.birthday,
       },
     });
-
-    next();
   },
 );

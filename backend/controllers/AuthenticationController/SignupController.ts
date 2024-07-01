@@ -54,7 +54,5 @@ export const signup = catchAsync(
         birthday,
       },
     });
-
-    next();
   },
 );
