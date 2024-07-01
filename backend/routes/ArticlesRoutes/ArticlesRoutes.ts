@@ -9,6 +9,7 @@ import { restrictTo } from "../../controllers/AuthenticationController/RestrictT
 import { articlesValidator } from "../../validators/ArticlesValidators/ArticlesValidators";
 import {
   getAllArticles,
+  getAllEvents,
   getAllNews,
 } from "../../controllers/ArticlesController/GetAllArticlesController";
 
@@ -28,5 +29,6 @@ router
   );
 
 router.route("/news").get(getAllNews);
+router.route("/events").get(getAllEvents);
 
 export default router;

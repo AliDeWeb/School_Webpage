@@ -46,3 +46,30 @@ export const getAllNews = catchAsync(
     });
   },
 );
+
+export const getAllEvents = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const events = await ArticleModel.aggregate([
+      {
+        $match: { category: "event" },
+      },
+      {
+        $project: {
+          __v: 0,
+          updatedAt: 0,
+        },
+      },
+    ]);
+
+    await ArticleModel.populate(events, {
+      path: "author",
+      select: "name lastName phoneNumber",
+    });
+
+    res.status(200).json({
+      data: {
+        events,
+      },
+    });
+  },
+);
