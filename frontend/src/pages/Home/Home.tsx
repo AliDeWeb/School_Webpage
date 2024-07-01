@@ -70,7 +70,6 @@ const Home = () => {
                 slidesPerView: 4.2,
               },
             }}
-            dir={"rtl"}
           >
             <SwiperSlide>
               <ImagesCards
@@ -185,7 +184,6 @@ const Home = () => {
                 slidesPerView: 4.2,
               },
             }}
-            dir={"rtl"}
           >
             <SwiperSlide>
               <ImagesCards
