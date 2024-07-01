@@ -77,6 +77,10 @@ userSchema.pre(`save`, async function (next) {
 });
 
 // Methods
+// <-- Change Password -->
+userSchema.methods.changePassword = function (newPassword: string) {
+  this.password = newPassword;
+};
 // <-- Comparing Passwords -->
 userSchema.methods.isPasswordCorrect = async (input: string, pass: string) => {
   return await bcrypt.compare(input, pass);
@@ -103,6 +107,14 @@ userSchema.methods.generateResetPasswordToken = function () {
   this.passwordResetTokenExpiresIn = Date.now() + 10 * 60 * 1000;
 
   return resetToken;
+};
+userSchema.methods.areCodeAndResetPasswordTokenMatch = function (code: string) {
+  const hashedCode = crypto.createHash("sha256").update(code).digest("hex");
+
+  return hashedCode === this.passwordResetToken;
+};
+userSchema.methods.isResetTokenStillValid = function () {
+  return Date.now() < this.passwordResetTokenExpiresIn;
 };
 
 // Model
