@@ -1,6 +1,6 @@
 // SwiperJs
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCoverflow } from "swiper/modules";
+import {A11y, Autoplay, EffectCoverflow} from "swiper/modules";
 import "swiper/css/effect-coverflow";
 
 const ImageGalleryGridSystem = () => {
@@ -10,6 +10,11 @@ const ImageGalleryGridSystem = () => {
         style={{ width: "100%" }}
         effect={"coverflow"}
         loop={true}
+        modules={[Autoplay, A11y,EffectCoverflow]}
+        autoplay={{
+            delay: 3000,
+            pauseOnMouseEnter: true,
+        }}
         grabCursor={true}
         centeredSlides={true}
         slidesPerView={"auto"}
@@ -20,8 +25,6 @@ const ImageGalleryGridSystem = () => {
           modifier: 1,
           slideShadows: true,
         }}
-        modules={[EffectCoverflow]}
-        dir={"rtl"}
       >
         <SwiperSlide
           style={{
