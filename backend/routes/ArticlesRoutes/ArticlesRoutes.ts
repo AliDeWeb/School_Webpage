@@ -11,6 +11,7 @@ import {
   getAllArticles,
   getAllEvents,
   getAllNews,
+  getArticle,
 } from "../../controllers/ArticlesController/GetAllArticlesController";
 
 const router = express.Router();
@@ -27,6 +28,8 @@ router
     articlesValidator,
     addNewArticle,
   );
+
+router.route("/:articleId").get(getArticle);
 
 router.route("/news").get(getAllNews);
 router.route("/events").get(getAllEvents);
