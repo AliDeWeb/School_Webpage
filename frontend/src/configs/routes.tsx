@@ -8,7 +8,6 @@ import {
   Page404,
   PasswordReset_ConfirmPhoneNumber,
   PasswordReset_ConfirmCode,
-  PasswordReset_ConfirmPassword,
 } from "./layout";
 
 export default () => {
@@ -23,10 +22,6 @@ export default () => {
           element={<PasswordReset_ConfirmPhoneNumber />}
         />
         <Route path="/confirm-code" element={<PasswordReset_ConfirmCode />} />
-        <Route
-          path="/confirm-password"
-          element={<PasswordReset_ConfirmPassword />}
-        />
         <Route path="*" element={<Page404 />} />
       </Routes>
     </BrowserRouter>
