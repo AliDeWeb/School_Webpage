@@ -93,7 +93,7 @@ const PasswordReset_ConfirmCode = () => {
         </button>
 
         <span className={"font-dana text-xs mt-3"}>
-          <Link to={"/confirm-email"} className={"text-red-600"}>
+          <Link to={"/login"} className={"text-red-600"}>
             بازگشت به صفحه ورود
           </Link>
         </span>

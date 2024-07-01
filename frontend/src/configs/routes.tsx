@@ -18,7 +18,7 @@ export default () => {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
         <Route
-          path="/confirm-email"
+          path="/confirm-phone-number"
           element={<PasswordReset_ConfirmPhoneNumber />}
         />
         <Route path="/confirm-code" element={<PasswordReset_ConfirmCode />} />

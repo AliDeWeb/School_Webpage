@@ -101,7 +101,7 @@ const Login = () => {
         </span>
         <span className={"font-dana text-xs mt-3"}>
           رمز عبور خود را فراموش کرده اید؟{" "}
-          <Link to={"/confirm-email"} className={"text-red-600"}>
+          <Link to={"/confirm-phone-number"} className={"text-red-600"}>
             بازیابی
           </Link>
         </span>
