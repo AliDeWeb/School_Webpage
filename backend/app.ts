@@ -1,6 +1,7 @@
 import express, { NextFunction, Request, Response } from "express";
 import authenticationRouter from "./routes/AuthenticationRoutes/AuthenticationRoutes";
 import usersRouter from "./routes/UsersRoutes/UsersRoutes";
+import articlesRouter from "./routes/ArticlesRoutes/ArticlesRoutes";
 import errorController from "./controllers/ErrorController/ErrorController";
 import AppError from "./utils/AppError/AppError";
 import { errors } from "celebrate";
@@ -48,6 +49,8 @@ app.use(helmet());
 app.use("/api", limiter);
 // <-- Body Parser -->
 app.use(express.json({ limit: "10kb" }));
+// <-- Serving Static Files -->
+app.use(express.static("uploads"));
 // <-- Data Sanitizing -->
 app.use(mongoSanitize());
 app.use(xss());
@@ -57,6 +60,8 @@ app.use(hpp());
 app.use("/api/v1/auth", authenticationRouter);
 // <-- Users -->
 app.use("/api/v1/users", usersRouter);
+// <-- Articles -->
+app.use("/api/v1/articles", articlesRouter);
 // <-- 404 Route -->
 app.use("*", (req: Request, res: Response, next: NextFunction) => {
   next(new AppError(`Route is not defined`, 404));
