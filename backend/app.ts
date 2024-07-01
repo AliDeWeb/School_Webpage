@@ -1,5 +1,6 @@
 import express, { NextFunction, Request, Response } from "express";
-import signupRouter from "./routes/AuthenticationRoutes/AuthenticationRoutes";
+import authenticationRouter from "./routes/AuthenticationRoutes/AuthenticationRoutes";
+import usersRouter from "./routes/UsersRoutes/UsersRoutes";
 import errorController from "./controllers/ErrorController/ErrorController";
 import AppError from "./utils/AppError/AppError";
 import { errors } from "celebrate";
@@ -53,7 +54,9 @@ app.use(xss());
 // <-- Preventing Params Pollution -->
 app.use(hpp());
 // <-- Authentication -->
-app.use("/api/v1/auth", signupRouter);
+app.use("/api/v1/auth", authenticationRouter);
+// <-- Users -->
+app.use("/api/v1/users", usersRouter);
 // <-- 404 Route -->
 app.use("*", (req: Request, res: Response, next: NextFunction) => {
   next(new AppError(`Route is not defined`, 404));

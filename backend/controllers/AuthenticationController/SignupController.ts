@@ -30,7 +30,7 @@ export const signup = catchAsync(
       name: name.trim().toLowerCase(),
       lastName: lastName.trim().toLowerCase(),
       phoneNumber: phoneNumber.trim().toLowerCase(),
-      classNumber: classNumber.trim().toLowerCase(),
+      classNumber: classNumber?.trim()?.toLowerCase(),
       password: password.trim().toLowerCase(),
       birthday,
     });
