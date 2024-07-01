@@ -12,6 +12,7 @@ interface UserModelTypes extends Document {
 
   isPasswordCorrect(input: string, pass: string): Promise<boolean>;
   isTokenValid(passwordUpdatedAt: Date, tokenExpiresIn: number): boolean;
+  generateResetPasswordToken(): string;
 }
 
 export default UserModelTypes;

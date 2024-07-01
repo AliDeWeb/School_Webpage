@@ -2,6 +2,7 @@ import mongoose, { Model } from "mongoose";
 const { Schema } = mongoose;
 import bcrypt from "bcrypt";
 import UserModelTypes from "./UserModel.types";
+import crypto from "crypto";
 
 const userSchema = new Schema<UserModelTypes>(
   {
@@ -47,6 +48,12 @@ const userSchema = new Schema<UserModelTypes>(
       type: Date,
       default: Date.now(),
     },
+    passwordResetToken: {
+      type: String,
+    },
+    passwordResetTokenExpiresIn: {
+      type: Date,
+    },
   },
   {
     timestamps: true,
@@ -79,11 +86,23 @@ userSchema.methods.isTokenValid = (
   passwordUpdatedAt: Date,
   tokenExpiresIn: number,
 ): boolean => {
-  console.log(tokenExpiresIn, passwordUpdatedAt.getDate());
   const passwordChangedTimestamp = Math.floor(
     passwordUpdatedAt.getTime() / 1000,
   );
   return tokenExpiresIn > passwordChangedTimestamp;
+};
+// <-- Generate Password Reset Token -->
+userSchema.methods.generateResetPasswordToken = function () {
+  let resetToken = String(parseInt(`${Math.random() * 1000000}`));
+  const hashedCode = crypto
+    .createHash("sha256")
+    .update(resetToken)
+    .digest("hex");
+
+  this.passwordResetToken = hashedCode;
+  this.passwordResetTokenExpiresIn = Date.now() + 10 * 60 * 1000;
+
+  return resetToken;
 };
 
 // Model
