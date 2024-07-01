@@ -1,8 +1,6 @@
 import express from "express";
 import { signup } from "../../controllers/AuthenticationController/SignupController";
 import { login } from "../../controllers/AuthenticationController/LoginController";
-import { protectedRoute } from "../../controllers/AuthenticationController/protectedRouteController";
-import { getMe } from "../../controllers/AuthenticationController/getMeController";
 import {
   confirmResetPasswordTokenAndResetPassword,
   ResetPasswordCodeSender,
@@ -15,7 +13,6 @@ const router = express.Router();
 // <-- Authentication -->
 router.route("/signup").post(signupValidators, signup);
 router.route("/login").get(login);
-router.route("/get_me").get(protectedRoute, getMe);
 // <-- Reset Password -->
 router.route("/reset_password").post(ResetPasswordCodeSender);
 router
