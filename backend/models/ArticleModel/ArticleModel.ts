@@ -31,6 +31,17 @@ const articleSchema = new Schema(
   },
 );
 
+// Middlewares
+articleSchema.pre(/^find/, function (next) {
+  // @ts-ignore
+  this.populate({
+    path: "author",
+    select: "name lastName phoneNumber",
+  });
+
+  next();
+});
+
 const ArticleModel = mongoose.model(`Articles`, articleSchema);
 
 export default ArticleModel;
