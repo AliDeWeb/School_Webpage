@@ -6,10 +6,17 @@ import App from "./App.tsx";
 import { ConfigProvider } from "antd";
 import frFR from "antd/locale/fr_FR";
 
+// React Query
+import { QueryClient, QueryClientProvider } from "react-query";
+
+const queryClient = new QueryClient();
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <ConfigProvider locale={frFR}>
-      <App />
-    </ConfigProvider>
+    <QueryClientProvider client={queryClient}>
+      <ConfigProvider locale={frFR}>
+        <App />
+      </ConfigProvider>
+    </QueryClientProvider>
   </React.StrictMode>,
 );
