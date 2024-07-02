@@ -31,6 +31,17 @@ const gallerySchema = new Schema({
   },
 });
 
+// Middlewares
+gallerySchema.pre(/^find/, function (next) {
+  // @ts-ignore
+  this.populate({
+    path: "Photographer",
+    select: "name lastName classNumber",
+  });
+
+  next();
+});
+
 const GalleryModel = mongoose.model("Gallery", gallerySchema);
 
 export default GalleryModel;

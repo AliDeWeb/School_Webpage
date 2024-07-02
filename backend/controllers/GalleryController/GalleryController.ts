@@ -5,6 +5,7 @@ import AppError from "../../utils/AppError/AppError";
 import sharp from "sharp";
 import GalleryModel from "../../models/GalleryModel/GalleryModel";
 import catchAsync from "../../utils/CatchAsync/CatchAsync";
+import ApiFeatures from "../../utils/ApiFeatures/ApiFeatures";
 
 const multerStorage = multer.memoryStorage();
 const multerFilter = (
@@ -64,6 +65,22 @@ export const addImageToGallery = catchAsync(
       data: {
         newGallery,
       },
+    });
+  },
+);
+
+export const getAllImagesFromGallery = catchAsync(
+  async (req: protectedRouteRequestType, res: Response, next: NextFunction) => {
+    const query = new ApiFeatures(GalleryModel.find(), req.query)
+      .filter()
+      .sort()
+      .fields()
+      .paginate();
+
+    const gallery = await query.query;
+
+    res.status(200).json({
+      data: { gallery },
     });
   },
 );
