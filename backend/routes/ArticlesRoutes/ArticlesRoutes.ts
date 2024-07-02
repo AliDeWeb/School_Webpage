@@ -13,6 +13,7 @@ import {
   getAllNews,
   getArticle,
 } from "../../controllers/ArticlesController/GetAllArticlesController";
+import { errors } from "celebrate";
 
 const router = express.Router();
 
@@ -33,5 +34,7 @@ router.route("/news").get(getAllNews);
 router.route("/events").get(getAllEvents);
 
 router.route("/:articleId").get(getArticle);
+
+router.use(errors());
 
 export default router;

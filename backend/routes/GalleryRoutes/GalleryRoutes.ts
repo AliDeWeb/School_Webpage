@@ -8,6 +8,7 @@ import {
 } from "../../controllers/GalleryController/GalleryController";
 import { protectedRoute } from "../../controllers/AuthenticationController/protectedRouteController";
 import { galleryValidator } from "../../validators/GalleryValidators/GalleryValidators";
+import { errors } from "celebrate";
 
 const router = express.Router();
 
@@ -24,5 +25,7 @@ router
   );
 
 router.route("/:imageId").get(getGalleryImage);
+
+router.use(errors());
 
 export default router;

@@ -5,7 +5,6 @@ import articlesRouter from "./routes/ArticlesRoutes/ArticlesRoutes";
 import galleryRouter from "./routes/GalleryRoutes/GalleryRoutes";
 import errorController from "./controllers/ErrorController/ErrorController";
 import AppError from "./utils/AppError/AppError";
-import { errors } from "celebrate";
 import cors from "cors";
 import helmet from "helmet";
 import rateLimit from "express-rate-limit";
@@ -55,7 +54,6 @@ app.use("*", (req: Request, res: Response, next: NextFunction) => {
   next(new AppError(`Route is not defined`, 404));
 });
 // <-- Error Handler -->
-app.use(errors({ statusCode: 401 }));
 app.use(errorController);
 
 export default app;
