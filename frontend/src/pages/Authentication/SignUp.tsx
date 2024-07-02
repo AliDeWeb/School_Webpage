@@ -1,3 +1,5 @@
+import { useCallback } from "react";
+
 // Types
 import { Inputs } from "./SignUp.types.ts";
 
@@ -12,7 +14,8 @@ import { Link, useNavigate } from "react-router-dom";
 
 // Axios
 import { auth } from "../../configs/axios.ts";
-import { useCallback } from "react";
+
+// Save Cookies
 import setTokenCookie from "../../utils/saveTokenInCookie.ts";
 
 // Ant Design

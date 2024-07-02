@@ -1,3 +1,5 @@
+import { useCallback } from "react";
+
 // Types
 import { Inputs } from "./Login.types.ts";
 
@@ -8,18 +10,57 @@ import { Header, Footer } from "../../configs/layout";
 import { useForm, SubmitHandler } from "react-hook-form";
 
 // React Router
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
+// Axios
+import { auth } from "../../configs/axios.ts";
+
+// Save Cookies
+import setTokenCookie from "../../utils/saveTokenInCookie.ts";
+
+// Ant Design
+import { notification } from "antd";
 
 const Login = () => {
+  // Navigator Hook
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>();
-  const SubmitHandler: SubmitHandler<Inputs> = (data: {
-    phone: string;
-    password: string;
-  }) => console.log(data);
+  const login: SubmitHandler<Inputs> = useCallback(
+    async (data: { phone: string; password: string }) => {
+      try {
+        const result = await auth(`/login`, {
+          data: {
+            phoneNumber: data.phone.trim(),
+            password: data.password.trim().toLowerCase(),
+          },
+          method: "POST",
+        });
+
+        setTokenCookie(result.data.token);
+        notification.success({
+          duration: 2,
+          message: "ورود موفقیت‌آمیز بود!",
+          description: result.data.message,
+        });
+
+        navigate("/");
+      } catch (err: unknown) {
+        notification.error({
+          duration: 2,
+          message: "خطا در ورود",
+          description:
+            (err as any).response.data.message || "مشکلی در ورود پیش آمد.",
+        });
+      }
+    },
+
+    [],
+  );
 
   return (
     <div
@@ -30,7 +71,7 @@ const Login = () => {
       <Header />
       <div> </div>
       <form
-        onSubmit={handleSubmit(SubmitHandler)}
+        onSubmit={handleSubmit(login)}
         className={
           "my-10 flex flex-col w-[320px] rounded-2xl shadow-2xl py-6 px-5 bg-amber-100/10"
         }
