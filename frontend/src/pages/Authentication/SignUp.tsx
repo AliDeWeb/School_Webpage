@@ -8,22 +8,52 @@ import { Header, Footer } from "../../configs/layout";
 import { useForm, SubmitHandler } from "react-hook-form";
 
 // React Router
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
+// Axios
+import { auth } from "../../configs/axios.ts";
+import { useCallback } from "react";
+import setTokenCookie from "../../utils/saveTokenInCookie.ts";
 
 const SignUp = () => {
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>();
-  const SubmitHandler: SubmitHandler<Inputs> = (data: {
-    birthday: string;
-    classNumber: string;
-    lastName: string;
-    name: string;
-    phone: string;
-    password: string;
-  }) => console.log(data);
+  const signUp: SubmitHandler<Inputs> = useCallback(
+    async (data: {
+      birthday: string;
+      classNumber: string;
+      lastName: string;
+      name: string;
+      phone: string;
+      password: string;
+    }) => {
+      try {
+        const result = await auth(`/signup`, {
+          data: {
+            name: data.name.trim().toLowerCase(),
+            lastName: data.lastName.trim().toLowerCase(),
+            phoneNumber: data.phone.trim(),
+            password: data.password.trim().toLowerCase(),
+            classNumber: data.classNumber.trim(),
+            birthday: data.birthday,
+          },
+          method: "POST",
+        });
+
+        setTokenCookie(result.data.token);
+
+        navigate("/");
+      } catch (err: unknown) {
+        console.log((err as Error).message);
+      }
+    },
+    [],
+  );
 
   return (
     <div
@@ -34,7 +64,7 @@ const SignUp = () => {
       <Header />
       <div> </div>
       <form
-        onSubmit={handleSubmit(SubmitHandler)}
+        onSubmit={handleSubmit(signUp)}
         className={
           "my-10 flex flex-col w-[320px] rounded-2xl shadow-2xl py-6 px-5 bg-amber-100/10"
         }

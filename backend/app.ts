@@ -26,24 +26,9 @@ const limiter = rateLimit({
     60 *
     1000,
 });
-// <-- Cors -->
-const whitelist = [`http://127.0.0.1:${process.env.PORT || 3000}`];
-const corsOptions = {
-  origin: function (origin: any, callback: any) {
-    if (!origin) {
-      return callback(null, true);
-    }
-
-    if (whitelist.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("دسترسی رد شد"), false);
-    }
-  },
-};
 
 // Middlewares
-app.use(cors(corsOptions));
+app.use(cors());
 // <-- Security -->
 app.use(helmet());
 // <-- Limitation -->
