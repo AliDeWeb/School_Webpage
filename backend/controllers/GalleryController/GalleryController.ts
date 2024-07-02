@@ -28,7 +28,7 @@ export const resizeGalleryImage = (
 ) => {
   if (!req.file) return next();
 
-  req.file.filename = `uploads/images/articles/article-${req.user?._id}-${Date.now()}.jpeg`;
+  req.file.filename = `uploads/images/gallery/gallery-${req.user?._id}-${Date.now()}.jpeg`;
 
   sharp(req.file.buffer)
     .toFormat("jpeg")
