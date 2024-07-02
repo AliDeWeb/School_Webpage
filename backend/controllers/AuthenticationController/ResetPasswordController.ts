@@ -6,7 +6,7 @@ import catchAsync from "../../utils/CatchAsync/CatchAsync";
 export const ResetPasswordCodeSender = catchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
     let { phoneNumber }: { phoneNumber: string } = req.body;
-    phoneNumber = phoneNumber.trim().toLowerCase();
+    phoneNumber = phoneNumber?.trim()?.toLowerCase();
 
     if (!phoneNumber)
       return next(new AppError("شماره تلفن خود را وارد نمایید", 403));
@@ -34,7 +34,7 @@ export const ResetPasswordCodeSender = catchAsync(
 
 export const confirmResetPasswordTokenAndResetPassword = catchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
-    const { resetToken, phoneNumber, newPassword } = req.query;
+    const { resetToken, phoneNumber, newPassword } = req.body;
 
     if (
       !phoneNumber ||

@@ -18,7 +18,7 @@ router.route("/login").post(login);
 router.route("/reset_password").post(ResetPasswordCodeSender);
 router
   .route("/reset_password/final")
-  .get(confirmResetPasswordTokenAndResetPassword);
+  .post(confirmResetPasswordTokenAndResetPassword);
 
 router.use(errors());
 
