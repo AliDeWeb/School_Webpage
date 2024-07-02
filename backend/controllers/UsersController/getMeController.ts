@@ -14,7 +14,5 @@ export const getMe = catchAsync(
         articles: req?.user?.articles,
       },
     });
-
-    next();
   },
 );

@@ -29,9 +29,9 @@ router
     addNewArticle,
   );
 
-router.route("/:articleId").get(getArticle);
-
 router.route("/news").get(getAllNews);
 router.route("/events").get(getAllEvents);
+
+router.route("/:articleId").get(getArticle);
 
 export default router;
