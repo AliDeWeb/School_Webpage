@@ -2,6 +2,7 @@ import express, { NextFunction, Request, Response } from "express";
 import authenticationRouter from "./routes/AuthenticationRoutes/AuthenticationRoutes";
 import usersRouter from "./routes/UsersRoutes/UsersRoutes";
 import articlesRouter from "./routes/ArticlesRoutes/ArticlesRoutes";
+import galleryRouter from "./routes/GalleryRoutes/GalleryRoutes";
 import errorController from "./controllers/ErrorController/ErrorController";
 import AppError from "./utils/AppError/AppError";
 import { errors } from "celebrate";
@@ -62,6 +63,8 @@ app.use("/api/v1/auth", authenticationRouter);
 app.use("/api/v1/users", usersRouter);
 // <-- Articles -->
 app.use("/api/v1/articles", articlesRouter);
+// <-- Gallery -->
+app.use("/api/v1/gallery", galleryRouter);
 // <-- 404 Route -->
 app.use("*", (req: Request, res: Response, next: NextFunction) => {
   next(new AppError(`Route is not defined`, 404));
