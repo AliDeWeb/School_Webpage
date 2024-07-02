@@ -8,16 +8,50 @@ import { Header, Footer } from "../../configs/layout";
 import { useForm, SubmitHandler } from "react-hook-form";
 
 // React Router
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
+// Axios
+import { auth } from "../../configs/axios.ts";
+
+// Ant Design
+import { notification } from "antd";
 
 const PasswordReset_ConfirmPhoneNumber = () => {
+  // Navigator Hook
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>();
-  const SubmitHandler: SubmitHandler<Inputs> = (data: { phone: string }) =>
-    console.log(data);
+  const SubmitHandler: SubmitHandler<Inputs> = async (data: {
+    phone: string;
+  }) => {
+    try {
+      const result = await auth("/reset_password", {
+        data: { phoneNumber: data.phone },
+        method: "POST",
+      });
+
+      notification.success({
+        duration: 2,
+        message: "عملیات موفقیت‌آمیز بود!",
+        description: "کد تایید با موفقیت ارسال شد",
+      });
+
+      alert(`کد تایید شما:\n${result.data.data.generatedCode}`);
+
+      navigate(`/confirm-code?phone=${data.phone}`);
+    } catch (err: unknown) {
+      notification.error({
+        duration: 2,
+        message: "خطا در انجام عملیات",
+        description:
+          (err as any).response.data.message || "متاسفیم. دوباره تلاش کنید",
+      });
+    }
+  };
 
   return (
     <div
@@ -64,7 +98,7 @@ const PasswordReset_ConfirmPhoneNumber = () => {
             "font-danaBold py-2 w-full rounded-xl bg-[#f2d0a4]/60 hover:bg-[#f2d0a4] text-sm cursor-pointer transition-all"
           }
         >
-          <Link to={"/confirm-code"}>ادامه</Link>
+          ادامه
         </button>
 
         <span className={"font-dana text-xs mt-3"}>

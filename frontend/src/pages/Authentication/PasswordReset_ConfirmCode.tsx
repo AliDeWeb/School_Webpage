@@ -8,16 +8,56 @@ import { Header, Footer } from "../../configs/layout";
 import { useForm, SubmitHandler } from "react-hook-form";
 
 // React Router
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
+// Axios
+import { auth } from "../../configs/axios.ts";
+
+// Ant Design
+import { notification } from "antd";
 
 const PasswordReset_ConfirmCode = () => {
+  // Navigator Hook
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>();
-  const SubmitHandler: SubmitHandler<Inputs> = (data: { code: string }) =>
-    console.log(data);
+  const SubmitHandler: SubmitHandler<Inputs> = async (data: {
+    code: string;
+    password: string;
+  }) => {
+    try {
+      const urlParams = new URLSearchParams(window.location.search);
+      const phone = urlParams.get("phone");
+
+      await auth("/reset_password", {
+        data: {
+          resetToken: data.code,
+          newPassword: data.password,
+          phoneNumber: phone,
+        },
+        method: "POST",
+      });
+
+      notification.success({
+        duration: 2,
+        message: "عملیات موفقیت‌آمیز بود!",
+        description: "پسورد با موفقیت تغییر یافت.",
+      });
+
+      navigate("/login");
+    } catch (err: unknown) {
+      notification.error({
+        duration: 2,
+        message: "خطا در انجام عملیات",
+        description:
+          (err as any).response.data.message || "متاسفیم. دوباره تلاش کنید",
+      });
+    }
+  };
 
   return (
     <div
