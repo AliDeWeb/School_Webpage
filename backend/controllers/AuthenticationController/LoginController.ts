@@ -9,8 +9,8 @@ export const login = catchAsync(
     let { phoneNumber, password }: { phoneNumber: string; password: string } =
       req.body;
 
-    phoneNumber = phoneNumber.trim().toLowerCase();
-    password = password.trim().toLowerCase();
+    phoneNumber = phoneNumber?.trim()?.toLowerCase();
+    password = password?.trim()?.toLowerCase();
 
     if (!phoneNumber || !password)
       return next(

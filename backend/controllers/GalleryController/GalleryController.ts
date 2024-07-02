@@ -45,8 +45,8 @@ export const addImageToGallery = catchAsync(
       description,
       imageDate,
     }: { title: string; description: string; imageDate: Date } = req.body;
-    title = title.trim().toLowerCase();
-    description = description.trim().toLowerCase();
+    title = title?.trim()?.toLowerCase();
+    description = description?.trim()?.toLowerCase();
     const Photographer = req.user?._id;
     const image = `${req.file?.filename.replace("uploads/", "")}`;
 

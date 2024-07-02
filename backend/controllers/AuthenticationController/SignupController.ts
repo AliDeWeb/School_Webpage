@@ -27,11 +27,11 @@ export const signup = catchAsync(
       return next(new AppError("شما با این شماره تلفن حساب کاربری دارید", 401));
 
     const newUser = await UserModel.create({
-      name: name.trim().toLowerCase(),
-      lastName: lastName.trim().toLowerCase(),
-      phoneNumber: phoneNumber.trim().toLowerCase(),
+      name: name?.trim()?.toLowerCase(),
+      lastName: lastName?.trim()?.toLowerCase(),
+      phoneNumber: phoneNumber?.trim()?.toLowerCase(),
       classNumber: classNumber?.trim()?.toLowerCase(),
-      password: password.trim().toLowerCase(),
+      password: password?.trim()?.toLowerCase(),
       birthday,
     });
 
