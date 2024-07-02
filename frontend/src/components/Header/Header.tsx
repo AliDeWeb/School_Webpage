@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 
 // Imgs
 import sampadLogo from "../../assets/imgs/icons/logo.png";
@@ -14,12 +14,45 @@ import {
   MdOutlineEventAvailable,
   MdOutlinePhotoCameraBack,
 } from "react-icons/md";
+import { FaRegUser } from "react-icons/fa";
+
+// getTokenFromCookie Func
+import getTokenFromCookie from "../../utils/getTokenFromCookie.ts";
+import { users } from "../../configs/axios.ts";
+
+// React Query
+import { useQuery } from "@tanstack/react-query";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const userToken = useRef(getTokenFromCookie());
   const menuSetStatusHandler = useCallback(() => {
     setIsMenuOpen((prev) => !prev);
   }, [isMenuOpen]);
+
+  const { data: userInfos, isLoading: isUserInfosLoading } = useQuery({
+    queryKey: ["repoData"],
+    queryFn: async () => {
+      if (userToken.current) {
+        const userInfos = await users.get("/get_me", {
+          method: "GET",
+          headers: {
+            authorization: `Bearer ${userToken.current}`,
+          },
+        });
+
+        return userInfos?.data;
+      } else {
+        return false;
+      }
+    },
+    refetchInterval: 1 * 60 * 60 * 1000,
+    refetchOnReconnect: true,
+    refetchIntervalInBackground: false,
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
+    staleTime: 1 * 60 * 60 * 1000,
+  });
 
   return (
     <header className="py-4 shadow-md fixed top-0 left-0 right-0 w-full z-20 bg-[#fffcf0] h-[88px] flex items-center">
@@ -75,11 +108,20 @@ const Header = () => {
             </ul>
             <hr className={"my-5"} />
             <Link
-              to="/signup"
+              to={!userInfos ? "/signup" : "/"}
               className="btn flex items-center justify-center gap-1.5 text-sm lg:text-base font-dana"
             >
-              <CiLogin size={"1.3em"} color={"#f1b163"} />
-              ثبت نام
+              {!isUserInfosLoading && !userInfos?.data?.name ? (
+                <>
+                  <CiLogin size={"1.3em"} color={"#f1b163"} />
+                  ثبت نام
+                </>
+              ) : (
+                <>
+                  <FaRegUser size={"1em"} color={"#f1b163"} />
+                  {`${userInfos?.data?.name} ${userInfos?.data?.lastName}`}
+                </>
+              )}
             </Link>
           </nav>
         </div>
@@ -123,11 +165,20 @@ const Header = () => {
           </div>
           <div className="font-dana hidden md:block">
             <Link
-              to="/signup"
+              to={!userInfos ? "/signup" : "/"}
               className="btn flex items-center justify-center gap-1.5 text-sm lg:text-base"
             >
-              <CiLogin size={"1.3em"} color={"#f1b163"} />
-              ثبت نام
+              {!isUserInfosLoading && !userInfos?.data?.name ? (
+                <>
+                  <CiLogin size={"1.3em"} color={"#f1b163"} />
+                  ثبت نام
+                </>
+              ) : (
+                <>
+                  <FaRegUser size={"1em"} color={"#f1b163"} />
+                  {`${userInfos?.data?.name} ${userInfos?.data?.lastName}`}
+                </>
+              )}
             </Link>
           </div>
           <div className="font-dana block md:hidden">
