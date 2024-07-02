@@ -49,9 +49,9 @@ const Header = () => {
     refetchInterval: 1 * 60 * 60 * 1000,
     refetchOnReconnect: true,
     refetchIntervalInBackground: false,
-    refetchOnMount: false,
-    refetchOnWindowFocus: false,
-    staleTime: 1 * 60 * 60 * 1000,
+    refetchOnMount: true,
+    refetchOnWindowFocus: true,
+    staleTime: 10 * 1000,
   });
 
   return (
