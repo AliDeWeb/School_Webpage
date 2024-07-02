@@ -4,6 +4,7 @@ import {
   uploadGalleryImage,
   resizeGalleryImage,
   getAllImagesFromGallery,
+  getGalleryImage,
 } from "../../controllers/GalleryController/GalleryController";
 import { protectedRoute } from "../../controllers/AuthenticationController/protectedRouteController";
 import { galleryValidator } from "../../validators/GalleryValidators/GalleryValidators";
@@ -21,5 +22,7 @@ router
     galleryValidator,
     addImageToGallery,
   );
+
+router.route("/:imageId").get(getGalleryImage);
 
 export default router;

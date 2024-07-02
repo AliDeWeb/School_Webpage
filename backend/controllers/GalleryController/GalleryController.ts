@@ -70,7 +70,7 @@ export const addImageToGallery = catchAsync(
 );
 
 export const getAllImagesFromGallery = catchAsync(
-  async (req: protectedRouteRequestType, res: Response, next: NextFunction) => {
+  async (req: Request, res: Response, next: NextFunction) => {
     const query = new ApiFeatures(GalleryModel.find(), req.query)
       .filter()
       .sort()
@@ -81,6 +81,18 @@ export const getAllImagesFromGallery = catchAsync(
 
     res.status(200).json({
       data: { gallery },
+    });
+  },
+);
+
+export const getGalleryImage = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const imageId = req.params.imageId;
+
+    const image = await GalleryModel.findById(imageId);
+
+    res.status(200).json({
+      data: { image },
     });
   },
 );
