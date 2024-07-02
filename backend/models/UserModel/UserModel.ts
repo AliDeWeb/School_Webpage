@@ -68,6 +68,11 @@ userSchema.virtual("articles", {
   foreignField: "author",
   localField: "_id",
 });
+userSchema.virtual("gallery", {
+  ref: "Gallery",
+  foreignField: "Photographer",
+  localField: "_id",
+});
 
 // Middlewares
 // <-- Hash Password -->

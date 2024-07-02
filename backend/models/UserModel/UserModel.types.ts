@@ -10,6 +10,7 @@ interface UserModelTypes extends Document {
   birthday: Date;
   passwordUpdatedAt: Date;
   articles?: [];
+  gallery?: [];
 
   isPasswordCorrect(input: string, pass: string): Promise<boolean>;
   isTokenValid(passwordUpdatedAt: Date, tokenExpiresIn: number): boolean;

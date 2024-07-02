@@ -12,6 +12,7 @@ export const getMe = catchAsync(
         classNumber: req?.user?.classNumber,
         birthday: req?.user?.birthday,
         articles: req?.user?.articles,
+        gallery: req?.user?.gallery,
       },
     });
   },

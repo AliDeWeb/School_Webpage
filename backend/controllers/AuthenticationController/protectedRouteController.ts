@@ -42,6 +42,10 @@ export const protectedRoute = catchAsync(
       });
     }
 
+    await isAnyUserExist?.populate({
+      path: "gallery",
+    });
+
     req.user = isAnyUserExist as UserModelTypes;
 
     next();
