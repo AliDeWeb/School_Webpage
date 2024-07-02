@@ -18,3 +18,8 @@
 ::-webkit-scrollbar-thumb:active {
   background: #807c7c;
 }
+
+/* Ant Design Notification */
+.ant-notification-notice {
+  font-family: "dana";
+}

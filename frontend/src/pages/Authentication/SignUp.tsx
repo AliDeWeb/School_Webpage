@@ -15,9 +15,14 @@ import { auth } from "../../configs/axios.ts";
 import { useCallback } from "react";
 import setTokenCookie from "../../utils/saveTokenInCookie.ts";
 
+// Ant Design
+import { notification } from "antd";
+
 const SignUp = () => {
+  // Navigator Hook
   const navigate = useNavigate();
 
+  // Submit Form
   const {
     register,
     handleSubmit,
@@ -46,10 +51,20 @@ const SignUp = () => {
         });
 
         setTokenCookie(result.data.token);
+        notification.success({
+          duration: 2,
+          message: "ثبت نام موفقیت‌آمیز بود!",
+          description: result.data.message,
+        });
 
         navigate("/");
       } catch (err: unknown) {
-        console.log((err as Error).message);
+        notification.error({
+          duration: 2,
+          message: "خطا در ثبت نام",
+          description:
+            (err as any).response.data.message || "مشکلی در ثبت نام پیش آمد.",
+        });
       }
     },
     [],
