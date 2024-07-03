@@ -31,7 +31,7 @@ const Header = () => {
   }, [isMenuOpen]);
 
   const { data: userInfos, isLoading: isUserInfosLoading } = useQuery({
-    queryKey: ["repoData"],
+    queryKey: ["UserInfos"],
     queryFn: async () => {
       if (userToken.current) {
         const userInfos = await users.get("/get_me", {
