@@ -45,6 +45,7 @@ export const getAllNews = catchAsync(
         $match: { category: "news" },
       },
       { $sort: { updatedAt: -1, createdAt: -1 } },
+      { $limit: 10 },
       {
         $project: {
           __v: 0,
@@ -73,6 +74,7 @@ export const getAllEvents = catchAsync(
         $match: { category: "event" },
       },
       { $sort: { updatedAt: -1, createdAt: -1 } },
+      { $limit: 10 },
       {
         $project: {
           __v: 0,
