@@ -74,7 +74,6 @@ const Home = () => {
         method: "GET",
       });
 
-      console.log(events?.data);
       return events?.data;
     },
     refetchInterval: 2 * 60 * 1000,
@@ -201,7 +200,7 @@ const Home = () => {
         )}
 
         {!isMemoriesLoading && !!memories?.data?.memories?.length && (
-          <SectionWrapper title={"خاطرات"} link={"/"}>
+          <SectionWrapper title={"خاطرات"} link={"/"} key={Math.random()}>
             <div
               className={
                 "w-full grid grid-cols-4 gap-4 py-4 overflow-x-hidden child:overflow-x-hidden"
@@ -224,6 +223,7 @@ const Home = () => {
         <SectionWrapper title={"گالری تصاویر"} link={"/"}>
           <ImageGalleryGridSystem />
         </SectionWrapper>
+
         <SectionWrapper title={"برنامه های تابستانه"} link={"/"}>
           <ClassesCards />
         </SectionWrapper>
