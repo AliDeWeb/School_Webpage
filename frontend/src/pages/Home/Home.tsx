@@ -224,7 +224,7 @@ const Home = () => {
         <SectionWrapper title={"گالری تصاویر"} link={"/"}>
           <ImageGalleryGridSystem />
         </SectionWrapper>
-        <SectionWrapper title={"برنامه های تابستانه"} link={"/"}>
+        <SectionWrapper title={"برنامه های مدرسه"} link={"/"}>
           <ClassesCards />
         </SectionWrapper>
       </main>
