@@ -50,7 +50,6 @@ const ImageGalleryGridSystem = () => {
           delay: 3000,
           pauseOnMouseEnter: true,
         }}
-        grabCursor={true}
         centeredSlides={true}
         slidesPerView={"auto"}
         coverflowEffect={{
