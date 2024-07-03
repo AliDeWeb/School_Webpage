@@ -201,7 +201,7 @@ const Home = () => {
           </SectionWrapper>
         )}
         {!isMemoriesLoading && !!memories?.data?.memories?.length && (
-          <SectionWrapper title={"خاطرات"} link={"/"}>
+          <SectionWrapper title={"خاطرات"} link={"/gallery"}>
             <div
               className={
                 "w-full grid grid-cols-4 gap-4 py-4 overflow-x-hidden child:overflow-x-hidden"
@@ -221,7 +221,7 @@ const Home = () => {
             </div>
           </SectionWrapper>
         )}
-        <SectionWrapper title={"گالری تصاویر"} link={"/"}>
+        <SectionWrapper title={"گالری تصاویر"} link={"/gallery"}>
           <ImageGalleryGridSystem />
         </SectionWrapper>
         <SectionWrapper title={"برنامه های مدرسه"} link={"/"}>

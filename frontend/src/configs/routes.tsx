@@ -9,6 +9,7 @@ import {
   PasswordReset_ConfirmPhoneNumber,
   PasswordReset_ConfirmCode,
   Article,
+  GallerySlider,
 } from "./layout";
 
 export default () => {
@@ -24,6 +25,7 @@ export default () => {
         />
         <Route path="/confirm-code" element={<PasswordReset_ConfirmCode />} />
         <Route path="/article/:articleId" element={<Article />} />
+        <Route path="/gallery" element={<GallerySlider />} />
         <Route path="*" element={<Page404 />} />
       </Routes>
     </BrowserRouter>
