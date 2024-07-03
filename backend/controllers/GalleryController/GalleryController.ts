@@ -145,18 +145,12 @@ export const getMemories = catchAsync(
           },
         },
         {
-          $addFields: {
-            dataYear: range.start,
-          },
+          $sort: { imageDate: -1 },
         },
         {
           $project: {
-            _id: 0,
-            data: 1,
+            data: { $slice: ["$data", 1] },
           },
-        },
-        {
-          $sort: { imageDate: -1 },
         },
       ]);
 
