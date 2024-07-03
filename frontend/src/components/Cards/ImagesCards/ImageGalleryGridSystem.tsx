@@ -9,7 +9,7 @@ import "swiper/css/effect-coverflow";
 import { baseUrl, gallery } from "../../../configs/axios.ts";
 
 // React Query
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 
 // Mobile Detect
 import MobileDetect from "mobile-detect";
@@ -21,6 +21,7 @@ import "tippy.js/dist/tippy.css";
 
 const ImageGalleryGridSystem = () => {
   const [md] = useState(new MobileDetect(window.navigator.userAgent));
+  const queryClient = useQueryClient();
 
   const { data: galleryImgs, isLoading: isGalleryImgsLoading } = useQuery({
     queryKey: ["GalleryImgs"],
@@ -31,6 +32,7 @@ const ImageGalleryGridSystem = () => {
 
       return galleryData?.data;
     },
+    initialData: queryClient.getQueryData(["GalleryImgs"]),
     refetchInterval: 2 * 60 * 1000,
     refetchOnReconnect: true,
     refetchIntervalInBackground: true,

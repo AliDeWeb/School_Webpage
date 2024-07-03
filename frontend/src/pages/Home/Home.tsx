@@ -28,12 +28,14 @@ import "aos/dist/aos.css";
 import { baseUrl, articles, gallery } from "../../configs/axios";
 
 // React Query
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 
 const Home = () => {
   useEffect(() => {
     AOS.init({ delay: 0, duration: 400, once: false });
   }, []);
+
+  const queryClient = useQueryClient();
 
   const { data: events, isLoading: isEventsLoading } = useQuery({
     queryKey: ["Events"],
@@ -60,6 +62,7 @@ const Home = () => {
 
       return events?.data;
     },
+    initialData: queryClient.getQueryData(["News"]),
     refetchInterval: 2 * 60 * 1000,
     refetchOnReconnect: true,
     refetchIntervalInBackground: true,
@@ -143,7 +146,6 @@ const Home = () => {
             </Swiper>
           </SectionWrapper>
         )}
-
         {!isNewsLoading && !!news?.data?.news && (
           <SectionWrapper title={"اخبار"} link={"/"}>
             <Swiper
@@ -198,7 +200,6 @@ const Home = () => {
             </Swiper>
           </SectionWrapper>
         )}
-
         {!isMemoriesLoading && !!memories?.data?.memories?.length && (
           <SectionWrapper title={"خاطرات"} link={"/"}>
             <div
@@ -220,11 +221,9 @@ const Home = () => {
             </div>
           </SectionWrapper>
         )}
-
         <SectionWrapper title={"گالری تصاویر"} link={"/"}>
           <ImageGalleryGridSystem />
         </SectionWrapper>
-
         <SectionWrapper title={"برنامه های تابستانه"} link={"/"}>
           <ClassesCards />
         </SectionWrapper>
