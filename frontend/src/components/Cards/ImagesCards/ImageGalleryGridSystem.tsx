@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 // SwiperJs
 import { Swiper, SwiperSlide } from "swiper/react";
 import { A11y, Autoplay, EffectCoverflow } from "swiper/modules";
@@ -9,7 +11,17 @@ import { baseUrl, gallery } from "../../../configs/axios.ts";
 // React Query
 import { useQuery } from "@tanstack/react-query";
 
+// Mobile Detect
+import MobileDetect from "mobile-detect";
+
+// TippyJs
+import Tippy from "@tippyjs/react";
+import { followCursor } from "tippy.js";
+import "tippy.js/dist/tippy.css";
+
 const ImageGalleryGridSystem = () => {
+  const [md] = useState(new MobileDetect(window.navigator.userAgent));
+
   const { data: galleryImgs, isLoading: isGalleryImgsLoading } = useQuery({
     queryKey: ["GalleryImgs"],
     queryFn: async () => {
@@ -62,10 +74,16 @@ const ImageGalleryGridSystem = () => {
                 backgroundPosition: "center",
               }}
             >
-              <img
-                className={"rounded-2xl block w-full"}
-                src={`${baseUrl}/${el.image}`}
-              />
+              <Tippy
+                plugins={[followCursor]}
+                followCursor={!md.mobile()}
+                content={<span className={"font-dana"}>{el.title}</span>}
+              >
+                <img
+                  className={"rounded-2xl block w-full"}
+                  src={`${baseUrl}/${el.image}`}
+                />
+              </Tippy>
             </SwiperSlide>
           ))}
       </Swiper>
