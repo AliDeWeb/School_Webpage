@@ -7,6 +7,8 @@ import GalleryModel from "../../models/GalleryModel/GalleryModel";
 import catchAsync from "../../utils/CatchAsync/CatchAsync";
 import ApiFeatures from "../../utils/ApiFeatures/ApiFeatures";
 import moment from "moment-jalaali";
+// @ts-ignore
+import exifParser from "exif-parser";
 
 const multerStorage = multer.memoryStorage();
 const multerFilter = (
@@ -29,6 +31,20 @@ export const resizeGalleryImage = (
 ) => {
   if (!req.file) return next();
 
+  // Extract EXIF data
+  const parser = exifParser.create(req.file.buffer);
+  const result = parser.parse();
+  const dateTaken = result.tags.DateTimeOriginal;
+
+  // Set imageDate in req.body
+  if (dateTaken) {
+    //   @ts-ignore
+    req.file.imageDateExport = new Date(dateTaken * 1000).toISOString();
+  } else {
+    //   @ts-ignore
+    req.file.imageDateExport = null;
+  }
+
   req.file.filename = `uploads/images/gallery/gallery-${req.user?._id}-${Date.now()}.jpeg`;
 
   sharp(req.file.buffer)
@@ -50,6 +66,12 @@ export const addImageToGallery = catchAsync(
     description = description?.trim()?.toLowerCase();
     const Photographer = req.user?._id;
     const image = `${req.file?.filename.replace("uploads/", "")}`;
+
+    // @ts-ignore
+    if (req.file.imageDateExport) {
+      // @ts-ignore
+      imageDate = req.file.imageDateExport;
+    }
 
     if (!title || !description || !imageDate || !req.file)
       return next(new AppError("اطلاعات نامعتبر", 400));
@@ -132,6 +154,9 @@ export const getMemories = catchAsync(
             _id: 0,
             data: 1,
           },
+        },
+        {
+          $sort: { imageDate: -1 },
         },
       ]);
 

@@ -8,6 +8,7 @@
     "celebrate": "^15.0.3",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
+    "exif-parser": "^0.1.12",
     "express": "^4.19.2",
     "express-mongo-sanitize": "^2.2.0",
     "express-rate-limit": "^7.3.1",
