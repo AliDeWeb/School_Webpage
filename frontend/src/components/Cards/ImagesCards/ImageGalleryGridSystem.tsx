@@ -1,19 +1,42 @@
 // SwiperJs
 import { Swiper, SwiperSlide } from "swiper/react";
-import {A11y, Autoplay, EffectCoverflow} from "swiper/modules";
+import { A11y, Autoplay, EffectCoverflow } from "swiper/modules";
 import "swiper/css/effect-coverflow";
 
+// Axios
+import { baseUrl, gallery } from "../../../configs/axios.ts";
+
+// React Query
+import { useQuery } from "@tanstack/react-query";
+
 const ImageGalleryGridSystem = () => {
+  const { data: galleryImgs, isLoading: isGalleryImgsLoading } = useQuery({
+    queryKey: ["GalleryImgs"],
+    queryFn: async () => {
+      const galleryData = await gallery.get("/?limit=15", {
+        method: "GET",
+      });
+
+      return galleryData?.data;
+    },
+    refetchInterval: 2 * 60 * 1000,
+    refetchOnReconnect: true,
+    refetchIntervalInBackground: true,
+    refetchOnMount: true,
+    refetchOnWindowFocus: true,
+    staleTime: 2 * 60 * 1000,
+  });
+
   return (
     <div>
       <Swiper
         style={{ width: "100%" }}
         effect={"coverflow"}
         loop={true}
-        modules={[Autoplay, A11y,EffectCoverflow]}
+        modules={[Autoplay, A11y, EffectCoverflow]}
         autoplay={{
-            delay: 3000,
-            pauseOnMouseEnter: true,
+          delay: 3000,
+          pauseOnMouseEnter: true,
         }}
         grabCursor={true}
         centeredSlides={true}
@@ -25,111 +48,26 @@ const ImageGalleryGridSystem = () => {
           modifier: 1,
           slideShadows: true,
         }}
+        className={"ltr"}
       >
-        <SwiperSlide
-          style={{
-            width: "max-content",
-            height: "300px",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        >
-          <img
-            className={"rounded-2xl block w-full"}
-            src="https://swiperjs.com/demos/images/nature-1.jpg"
-          />
-        </SwiperSlide>
-        <SwiperSlide
-          style={{
-            width: "max-content",
-            height: "300px",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        >
-          <img
-            className={"rounded-2xl block w-full"}
-            src="https://swiperjs.com/demos/images/nature-2.jpg"
-          />
-        </SwiperSlide>
-        <SwiperSlide
-          style={{
-            width: "max-content",
-            height: "300px",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        >
-          <img
-            className={"rounded-2xl block w-full"}
-            src="https://swiperjs.com/demos/images/nature-3.jpg"
-          />
-        </SwiperSlide>
-        <SwiperSlide
-          style={{
-            width: "max-content",
-            height: "300px",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        >
-          <img
-            className={"rounded-2xl block w-full"}
-            src="https://swiperjs.com/demos/images/nature-4.jpg"
-          />
-        </SwiperSlide>
-        <SwiperSlide
-          style={{
-            width: "max-content",
-            height: "300px",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        >
-          <img
-            className={"rounded-2xl block w-full"}
-            src="https://swiperjs.com/demos/images/nature-5.jpg"
-          />
-        </SwiperSlide>
-        <SwiperSlide
-          style={{
-            width: "max-content",
-            height: "300px",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        >
-          <img
-            className={"rounded-2xl block w-full"}
-            src="https://swiperjs.com/demos/images/nature-6.jpg"
-          />
-        </SwiperSlide>
-        <SwiperSlide
-          style={{
-            width: "max-content",
-            height: "300px",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        >
-          <img
-            className={"rounded-2xl block w-full"}
-            src="https://swiperjs.com/demos/images/nature-7.jpg"
-          />
-        </SwiperSlide>
-        <SwiperSlide
-          style={{
-            width: "max-content",
-            height: "300px",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        >
-          <img
-            className={"rounded-2xl block w-full"}
-            src="https://swiperjs.com/demos/images/nature-8.jpg"
-          />
-        </SwiperSlide>
+        {!isGalleryImgsLoading &&
+          !!galleryImgs?.data?.gallery.length &&
+          galleryImgs?.data?.gallery.map((el: any) => (
+            <SwiperSlide
+              key={el._id}
+              style={{
+                width: "max-content",
+                height: "300px",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            >
+              <img
+                className={"rounded-2xl block w-full"}
+                src={`${baseUrl}/${el.image}`}
+              />
+            </SwiperSlide>
+          ))}
       </Swiper>
     </div>
   );

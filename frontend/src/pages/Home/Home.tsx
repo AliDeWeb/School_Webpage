@@ -200,7 +200,7 @@ const Home = () => {
         )}
 
         {!isMemoriesLoading && !!memories?.data?.memories?.length && (
-          <SectionWrapper title={"خاطرات"} link={"/"} key={Math.random()}>
+          <SectionWrapper title={"خاطرات"} link={"/"}>
             <div
               className={
                 "w-full grid grid-cols-4 gap-4 py-4 overflow-x-hidden child:overflow-x-hidden"
@@ -209,6 +209,7 @@ const Home = () => {
               {memories.data.memories.map((el: any, index: number) => {
                 return (
                   <MemoryCard
+                    key={Math.random()}
                     year={parseInt(Object.keys(el)[0])}
                     link={`/gallery?year=${parseInt(Object.keys(el)[0])}`}
                     fadeEffect={index % 2 ? "right" : "left"}
