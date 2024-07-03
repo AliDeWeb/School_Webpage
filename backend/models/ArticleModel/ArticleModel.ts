@@ -1,4 +1,6 @@
 import mongoose from "mongoose";
+import moment from "moment-jalaali";
+
 const { Schema } = mongoose;
 
 const articleSchema = new Schema(
@@ -28,8 +30,15 @@ const articleSchema = new Schema(
   },
   {
     timestamps: true,
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true },
   },
 );
+
+// Virtuals
+articleSchema.virtual("createdAtJalali").get(function () {
+  return moment(this.createdAt).format("jD jMMMM jYYYY");
+});
 
 // Middlewares
 articleSchema.pre(/^find/, function (next) {
