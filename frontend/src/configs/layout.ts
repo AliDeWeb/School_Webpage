@@ -4,6 +4,7 @@ export { default as SignUp } from "../pages/Authentication/SignUp";
 export { default as Login } from "../pages/Authentication/Login";
 export { default as PasswordReset_ConfirmPhoneNumber } from "../pages/Authentication/PasswordReset_ConfirmPhoneNumber.tsx";
 export { default as PasswordReset_ConfirmCode } from "../pages/Authentication/PasswordReset_ConfirmCode";
+export { default as Article } from "../pages/Article/Article";
 export { default as Page404 } from "../pages/Page404/Page404";
 
 // Components
