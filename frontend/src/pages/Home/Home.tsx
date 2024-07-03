@@ -25,7 +25,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 // Axios
-import { baseUrl, articles } from "../../configs/axios";
+import { baseUrl, articles, gallery } from "../../configs/axios";
 
 // React Query
 import { useQuery } from "@tanstack/react-query";
@@ -58,6 +58,23 @@ const Home = () => {
         method: "GET",
       });
 
+      return events?.data;
+    },
+    refetchInterval: 2 * 60 * 1000,
+    refetchOnReconnect: true,
+    refetchIntervalInBackground: true,
+    refetchOnMount: true,
+    refetchOnWindowFocus: true,
+    staleTime: 2 * 60 * 1000,
+  });
+  const { data: memories, isLoading: isMemoriesLoading } = useQuery({
+    queryKey: ["Memories"],
+    queryFn: async () => {
+      const events = await gallery.get("/memories", {
+        method: "GET",
+      });
+
+      console.log(events?.data);
       return events?.data;
     },
     refetchInterval: 2 * 60 * 1000,
@@ -183,46 +200,27 @@ const Home = () => {
           </SectionWrapper>
         )}
 
-        <SectionWrapper title={"خاطرات"} link={"/"}>
-          <div
-            className={
-              "w-full grid grid-cols-4 gap-4 py-4 overflow-x-hidden child:overflow-x-hidden"
-            }
-          >
-            <MemoryCard
-              year={1403}
-              link={"/"}
-              fadeEffect={"left"}
-              img={
-                "https://www.sampadia.com/forum/data/xfmg/thumbnail/0/81-6852206493687b51f951a2d8a77675cb.jpg?1587808790"
+        {!isMemoriesLoading && !!memories?.data?.memories?.length && (
+          <SectionWrapper title={"خاطرات"} link={"/"}>
+            <div
+              className={
+                "w-full grid grid-cols-4 gap-4 py-4 overflow-x-hidden child:overflow-x-hidden"
               }
-            />
-            <MemoryCard
-              year={1402}
-              link={"/"}
-              fadeEffect={"right"}
-              img={
-                "https://www.sampadia.com/forum/data/xfmg/thumbnail/0/81-6852206493687b51f951a2d8a77675cb.jpg?1587808790"
-              }
-            />
-            <MemoryCard
-              year={1401}
-              link={"/"}
-              fadeEffect={"left"}
-              img={
-                "https://www.sampadia.com/forum/data/xfmg/thumbnail/0/81-6852206493687b51f951a2d8a77675cb.jpg?1587808790"
-              }
-            />
-            <MemoryCard
-              year={1400}
-              link={"/"}
-              fadeEffect={"right"}
-              img={
-                "https://www.sampadia.com/forum/data/xfmg/thumbnail/0/81-6852206493687b51f951a2d8a77675cb.jpg?1587808790"
-              }
-            />
-          </div>
-        </SectionWrapper>
+            >
+              {memories.data.memories.map((el: any, index: number) => {
+                return (
+                  <MemoryCard
+                    year={parseInt(Object.keys(el)[0])}
+                    link={`/gallery?year=${parseInt(Object.keys(el)[0])}`}
+                    fadeEffect={index % 2 ? "right" : "left"}
+                    img={`${baseUrl}/${el[Object.keys(el)[0]][0]?.image}`}
+                  />
+                );
+              })}
+            </div>
+          </SectionWrapper>
+        )}
+
         <SectionWrapper title={"گالری تصاویر"} link={"/"}>
           <ImageGalleryGridSystem />
         </SectionWrapper>

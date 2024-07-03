@@ -10,6 +10,9 @@ import { Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
+// Imgs
+import errImg from "../../../assets/imgs/icons/error.png";
+
 const MemoryCard = (props: MemoryCardPropsTypes) => {
   useEffect(() => {
     AOS.init({ delay: 400, duration: 400, once: false });
@@ -28,6 +31,10 @@ const MemoryCard = (props: MemoryCardPropsTypes) => {
           src={props.img}
           alt="img"
           className={"brightness-[40%]"}
+          onError={(el) => {
+            // @ts-ignore
+            el.target.src = errImg;
+          }}
         />
 
         <span

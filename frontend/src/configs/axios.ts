@@ -14,3 +14,7 @@ export const users = axios.create({
 export const articles = axios.create({
   baseURL: `${baseUrl}/api/v1/articles`,
 });
+
+export const gallery = axios.create({
+  baseURL: `${baseUrl}/api/v1/gallery`,
+});
