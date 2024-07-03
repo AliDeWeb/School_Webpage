@@ -55,7 +55,7 @@ export const getAllNews = catchAsync(
 
     await ArticleModel.populate(news, {
       path: "author",
-      select: "name lastName phoneNumber",
+      select: "name lastName",
     });
 
     res.status(200).json({
@@ -83,7 +83,7 @@ export const getAllEvents = catchAsync(
 
     await ArticleModel.populate(events, {
       path: "author",
-      select: "name lastName phoneNumber",
+      select: "name lastName",
     });
 
     res.status(200).json({

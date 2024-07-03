@@ -29,7 +29,7 @@ const limiter = rateLimit({
 // Middlewares
 app.use(cors());
 // <-- Security -->
-app.use(helmet());
+app.use(helmet({ crossOriginResourcePolicy: false }));
 // <-- Limitation -->
 app.use("/api", limiter);
 // <-- Body Parser -->
