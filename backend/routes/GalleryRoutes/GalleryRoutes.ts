@@ -5,6 +5,7 @@ import {
   resizeGalleryImage,
   getAllImagesFromGallery,
   getGalleryImage,
+  getMemories,
 } from "../../controllers/GalleryController/GalleryController";
 import { protectedRoute } from "../../controllers/AuthenticationController/protectedRouteController";
 import { galleryValidator } from "../../validators/GalleryValidators/GalleryValidators";
@@ -23,6 +24,9 @@ router
     galleryValidator,
     addImageToGallery,
   );
+
+// <-- Memories -->
+router.route("/memories").get(getMemories);
 
 router.route("/:imageId").get(getGalleryImage);
 

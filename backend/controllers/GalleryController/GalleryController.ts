@@ -6,6 +6,7 @@ import sharp from "sharp";
 import GalleryModel from "../../models/GalleryModel/GalleryModel";
 import catchAsync from "../../utils/CatchAsync/CatchAsync";
 import ApiFeatures from "../../utils/ApiFeatures/ApiFeatures";
+import moment from "moment-jalaali";
 
 const multerStorage = multer.memoryStorage();
 const multerFilter = (
@@ -93,6 +94,58 @@ export const getGalleryImage = catchAsync(
 
     res.status(200).json({
       data: { image },
+    });
+  },
+);
+
+export const getMemories = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const currentYear = moment().jYear();
+    const ranges = Array.from({ length: 6 }, (_, i) => ({
+      start: currentYear - i,
+      end: currentYear - i + 1,
+    }));
+
+    const memoriesPromises = ranges.map(async (range) => {
+      const images = await GalleryModel.aggregate([
+        {
+          $match: {
+            imageDate: {
+              $gte: moment(`${range.start}-01-01`, "jYYYY-MM-DD").toDate(),
+              $lt: moment(`${range.end}-01-01`, "jYYYY-MM-DD").toDate(),
+            },
+          },
+        },
+        {
+          $group: {
+            _id: null,
+            data: { $push: "$$ROOT" },
+          },
+        },
+        {
+          $addFields: {
+            dataYear: range.start,
+          },
+        },
+        {
+          $project: {
+            _id: 0,
+            data: 1,
+          },
+        },
+      ]);
+
+      return {
+        [`${range.start}`]: images.length ? images[0].data : [],
+      };
+    });
+
+    const memories = await Promise.all(memoriesPromises);
+
+    res.status(200).json({
+      data: {
+        memories,
+      },
     });
   },
 );
